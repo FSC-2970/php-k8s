@@ -46,11 +46,11 @@ class HorizontalPodAutoscalerSpec extends \k8s\Resource
         if (isset($data['behavior'])) {
             $this->behavior = new HorizontalPodAutoscalerBehavior($data['behavior']);
         }
-        $this->maxReplicas = $data['maxReplicas'] ?? null;
+        $this->maxReplicas = isset($data['maxReplicas']) ? $data['maxReplicas'] : null;
         $this->metrics = array_map(function ($a) {
             return new MetricSpec($a);
-        }, $data['metrics'] ?? []);
-        $this->minReplicas = $data['minReplicas'] ?? null;
+        }, isset($data['metrics']) ? $data['metrics'] : []);
+        $this->minReplicas = isset($data['minReplicas']) ? $data['minReplicas'] : null;
         if (isset($data['scaleTargetRef'])) {
             $this->scaleTargetRef = new CrossVersionObjectReference($data['scaleTargetRef']);
         }

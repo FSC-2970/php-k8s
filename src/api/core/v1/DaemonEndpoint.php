@@ -15,6 +15,6 @@ class DaemonEndpoint extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->Port = $data['Port'] ?? null;
+        $this->Port = isset($data['Port']) ? $data['Port'] : null;
     }
 }

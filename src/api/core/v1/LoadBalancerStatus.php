@@ -19,6 +19,6 @@ class LoadBalancerStatus extends \k8s\Resource
     {
         $this->ingress = array_map(function ($a) {
             return new LoadBalancerIngress($a);
-        }, $data['ingress'] ?? []);
+        }, isset($data['ingress']) ? $data['ingress'] : []);
     }
 }

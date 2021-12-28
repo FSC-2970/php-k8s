@@ -29,8 +29,8 @@ class VolumeAttachmentSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->attacher = $data['attacher'] ?? null;
-        $this->nodeName = $data['nodeName'] ?? null;
+        $this->attacher = isset($data['attacher']) ? $data['attacher'] : null;
+        $this->nodeName = isset($data['nodeName']) ? $data['nodeName'] : null;
         if (isset($data['source'])) {
             $this->source = new VolumeAttachmentSource($data['source']);
         }

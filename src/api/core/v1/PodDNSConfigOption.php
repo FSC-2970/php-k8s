@@ -20,7 +20,7 @@ class PodDNSConfigOption extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->name = $data['name'] ?? null;
-        $this->value = $data['value'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->value = isset($data['value']) ? $data['value'] : null;
     }
 }

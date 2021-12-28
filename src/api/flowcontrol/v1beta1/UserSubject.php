@@ -15,6 +15,6 @@ class UserSubject extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->name = $data['name'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
     }
 }

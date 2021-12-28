@@ -21,7 +21,7 @@ class IDRange extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->max = $data['max'] ?? null;
-        $this->min = $data['min'] ?? null;
+        $this->max = isset($data['max']) ? $data['max'] : null;
+        $this->min = isset($data['min']) ? $data['min'] : null;
     }
 }

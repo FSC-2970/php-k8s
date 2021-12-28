@@ -51,12 +51,12 @@ class ResourceAttributes extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->group = $data['group'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->namespace = $data['namespace'] ?? null;
-        $this->resource = $data['resource'] ?? null;
-        $this->subresource = $data['subresource'] ?? null;
-        $this->verb = $data['verb'] ?? null;
-        $this->version = $data['version'] ?? null;
+        $this->group = isset($data['group']) ? $data['group'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->namespace = isset($data['namespace']) ? $data['namespace'] : null;
+        $this->resource = isset($data['resource']) ? $data['resource'] : null;
+        $this->subresource = isset($data['subresource']) ? $data['subresource'] : null;
+        $this->verb = isset($data['verb']) ? $data['verb'] : null;
+        $this->version = isset($data['version']) ? $data['version'] : null;
     }
 }

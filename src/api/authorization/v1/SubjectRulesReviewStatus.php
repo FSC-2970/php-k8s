@@ -36,13 +36,13 @@ class SubjectRulesReviewStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->evaluationError = $data['evaluationError'] ?? null;
-        $this->incomplete = $data['incomplete'] ?? null;
+        $this->evaluationError = isset($data['evaluationError']) ? $data['evaluationError'] : null;
+        $this->incomplete = isset($data['incomplete']) ? $data['incomplete'] : null;
         $this->nonResourceRules = array_map(function ($a) {
             return new NonResourceRule($a);
-        }, $data['nonResourceRules'] ?? []);
+        }, isset($data['nonResourceRules']) ? $data['nonResourceRules'] : []);
         $this->resourceRules = array_map(function ($a) {
             return new ResourceRule($a);
-        }, $data['resourceRules'] ?? []);
+        }, isset($data['resourceRules']) ? $data['resourceRules'] : []);
     }
 }

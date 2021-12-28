@@ -35,9 +35,9 @@ class ListMeta extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->continue = $data['continue'] ?? null;
-        $this->remainingItemCount = $data['remainingItemCount'] ?? null;
-        $this->resourceVersion = $data['resourceVersion'] ?? null;
-        $this->selfLink = $data['selfLink'] ?? null;
+        $this->continue = isset($data['continue']) ? $data['continue'] : null;
+        $this->remainingItemCount = isset($data['remainingItemCount']) ? $data['remainingItemCount'] : null;
+        $this->resourceVersion = isset($data['resourceVersion']) ? $data['resourceVersion'] : null;
+        $this->selfLink = isset($data['selfLink']) ? $data['selfLink'] : null;
     }
 }

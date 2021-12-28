@@ -35,9 +35,9 @@ class ContainerResourceMetricSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->container = $data['container'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->targetAverageUtilization = $data['targetAverageUtilization'] ?? null;
+        $this->container = isset($data['container']) ? $data['container'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->targetAverageUtilization = isset($data['targetAverageUtilization']) ? $data['targetAverageUtilization'] : null;
         if (isset($data['targetAverageValue'])) {
             $this->targetAverageValue = new Quantity($data['targetAverageValue']);
         }

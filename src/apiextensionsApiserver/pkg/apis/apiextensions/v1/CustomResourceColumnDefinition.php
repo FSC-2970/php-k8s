@@ -45,11 +45,11 @@ class CustomResourceColumnDefinition extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->description = $data['description'] ?? null;
-        $this->format = $data['format'] ?? null;
-        $this->jsonPath = $data['jsonPath'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->priority = $data['priority'] ?? null;
-        $this->type = $data['type'] ?? null;
+        $this->description = isset($data['description']) ? $data['description'] : null;
+        $this->format = isset($data['format']) ? $data['format'] : null;
+        $this->jsonPath = isset($data['jsonPath']) ? $data['jsonPath'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->priority = isset($data['priority']) ? $data['priority'] : null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

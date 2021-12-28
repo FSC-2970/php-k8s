@@ -31,8 +31,8 @@ class HPAScalingRules extends \k8s\Resource
     {
         $this->policies = array_map(function ($a) {
             return new HPAScalingPolicy($a);
-        }, $data['policies'] ?? []);
-        $this->selectPolicy = $data['selectPolicy'] ?? null;
-        $this->stabilizationWindowSeconds = $data['stabilizationWindowSeconds'] ?? null;
+        }, isset($data['policies']) ? $data['policies'] : []);
+        $this->selectPolicy = isset($data['selectPolicy']) ? $data['selectPolicy'] : null;
+        $this->stabilizationWindowSeconds = isset($data['stabilizationWindowSeconds']) ? $data['stabilizationWindowSeconds'] : null;
     }
 }

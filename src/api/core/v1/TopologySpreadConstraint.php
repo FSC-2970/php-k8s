@@ -41,8 +41,8 @@ class TopologySpreadConstraint extends \k8s\Resource
         if (isset($data['labelSelector'])) {
             $this->labelSelector = new LabelSelector($data['labelSelector']);
         }
-        $this->maxSkew = $data['maxSkew'] ?? null;
-        $this->topologyKey = $data['topologyKey'] ?? null;
-        $this->whenUnsatisfiable = $data['whenUnsatisfiable'] ?? null;
+        $this->maxSkew = isset($data['maxSkew']) ? $data['maxSkew'] : null;
+        $this->topologyKey = isset($data['topologyKey']) ? $data['topologyKey'] : null;
+        $this->whenUnsatisfiable = isset($data['whenUnsatisfiable']) ? $data['whenUnsatisfiable'] : null;
     }
 }

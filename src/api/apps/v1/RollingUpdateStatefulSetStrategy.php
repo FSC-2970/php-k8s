@@ -15,6 +15,6 @@ class RollingUpdateStatefulSetStrategy extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->partition = $data['partition'] ?? null;
+        $this->partition = isset($data['partition']) ? $data['partition'] : null;
     }
 }

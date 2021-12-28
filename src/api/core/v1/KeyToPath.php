@@ -27,8 +27,8 @@ class KeyToPath extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->key = $data['key'] ?? null;
-        $this->mode = $data['mode'] ?? null;
-        $this->path = $data['path'] ?? null;
+        $this->key = isset($data['key']) ? $data['key'] : null;
+        $this->mode = isset($data['mode']) ? $data['mode'] : null;
+        $this->path = isset($data['path']) ? $data['path'] : null;
     }
 }

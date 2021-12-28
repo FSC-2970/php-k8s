@@ -49,17 +49,17 @@ class ServiceAccount extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->automountServiceAccountToken = $data['automountServiceAccountToken'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->automountServiceAccountToken = isset($data['automountServiceAccountToken']) ? $data['automountServiceAccountToken'] : null;
         $this->imagePullSecrets = array_map(function ($a) {
             return new LocalObjectReference($a);
-        }, $data['imagePullSecrets'] ?? []);
-        $this->kind = $data['kind'] ?? null;
+        }, isset($data['imagePullSecrets']) ? $data['imagePullSecrets'] : []);
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }
         $this->secrets = array_map(function ($a) {
             return new ObjectReference($a);
-        }, $data['secrets'] ?? []);
+        }, isset($data['secrets']) ? $data['secrets'] : []);
     }
 }

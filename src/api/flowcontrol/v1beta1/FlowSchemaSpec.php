@@ -40,12 +40,12 @@ class FlowSchemaSpec extends \k8s\Resource
         if (isset($data['distinguisherMethod'])) {
             $this->distinguisherMethod = new FlowDistinguisherMethod($data['distinguisherMethod']);
         }
-        $this->matchingPrecedence = $data['matchingPrecedence'] ?? null;
+        $this->matchingPrecedence = isset($data['matchingPrecedence']) ? $data['matchingPrecedence'] : null;
         if (isset($data['priorityLevelConfiguration'])) {
             $this->priorityLevelConfiguration = new PriorityLevelConfigurationReference($data['priorityLevelConfiguration']);
         }
         $this->rules = array_map(function ($a) {
             return new PolicyRulesWithSubjects($a);
-        }, $data['rules'] ?? []);
+        }, isset($data['rules']) ? $data['rules'] : []);
     }
 }

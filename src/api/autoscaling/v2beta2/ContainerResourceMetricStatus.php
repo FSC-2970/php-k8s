@@ -29,10 +29,10 @@ class ContainerResourceMetricStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->container = $data['container'] ?? null;
+        $this->container = isset($data['container']) ? $data['container'] : null;
         if (isset($data['current'])) {
             $this->current = new MetricValueStatus($data['current']);
         }
-        $this->name = $data['name'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
     }
 }

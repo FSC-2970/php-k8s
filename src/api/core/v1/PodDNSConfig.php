@@ -29,10 +29,10 @@ class PodDNSConfig extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->nameservers = $data['nameservers'] ?? [];
+        $this->nameservers = isset($data['nameservers']) ? $data['nameservers'] : [];
         $this->options = array_map(function ($a) {
             return new PodDNSConfigOption($a);
-        }, $data['options'] ?? []);
-        $this->searches = $data['searches'] ?? [];
+        }, isset($data['options']) ? $data['options'] : []);
+        $this->searches = isset($data['searches']) ? $data['searches'] : [];
     }
 }

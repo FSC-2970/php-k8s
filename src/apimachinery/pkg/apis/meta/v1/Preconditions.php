@@ -21,7 +21,7 @@ class Preconditions extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->resourceVersion = $data['resourceVersion'] ?? null;
-        $this->uid = $data['uid'] ?? null;
+        $this->resourceVersion = isset($data['resourceVersion']) ? $data['resourceVersion'] : null;
+        $this->uid = isset($data['uid']) ? $data['uid'] : null;
     }
 }

@@ -66,6 +66,6 @@ class MetricStatus extends \k8s\Resource
         if (isset($data['resource'])) {
             $this->resource = new ResourceMetricStatus($data['resource']);
         }
-        $this->type = $data['type'] ?? null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

@@ -21,7 +21,7 @@ class NonResourceRule extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->nonResourceURLs = $data['nonResourceURLs'] ?? [];
-        $this->verbs = $data['verbs'] ?? [];
+        $this->nonResourceURLs = isset($data['nonResourceURLs']) ? $data['nonResourceURLs'] : [];
+        $this->verbs = isset($data['verbs']) ? $data['verbs'] : [];
     }
 }

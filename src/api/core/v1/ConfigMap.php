@@ -47,11 +47,11 @@ class ConfigMap extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->binaryData = $data['binaryData'] ?? null;
-        $this->data = $data['data'] ?? null;
-        $this->immutable = $data['immutable'] ?? null;
-        $this->kind = $data['kind'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->binaryData = isset($data['binaryData']) ? $data['binaryData'] : null;
+        $this->data = isset($data['data']) ? $data['data'] : null;
+        $this->immutable = isset($data['immutable']) ? $data['immutable'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }

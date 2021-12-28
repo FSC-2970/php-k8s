@@ -21,7 +21,7 @@ class PersistentVolumeClaimVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->claimName = $data['claimName'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
+        $this->claimName = isset($data['claimName']) ? $data['claimName'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
     }
 }

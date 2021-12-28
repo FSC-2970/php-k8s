@@ -27,8 +27,8 @@ class ConfigMapKeySelector extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->key = $data['key'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->optional = $data['optional'] ?? null;
+        $this->key = isset($data['key']) ? $data['key'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->optional = isset($data['optional']) ? $data['optional'] : null;
     }
 }

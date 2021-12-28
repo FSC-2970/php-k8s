@@ -19,7 +19,7 @@ class ExternalDocumentation extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->description = $data['description'] ?? null;
-        $this->url = $data['url'] ?? null;
+        $this->description = isset($data['description']) ? $data['description'] : null;
+        $this->url = isset($data['url']) ? $data['url'] : null;
     }
 }

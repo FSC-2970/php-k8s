@@ -40,12 +40,12 @@ class IngressSpec extends \k8s\Resource
         if (isset($data['defaultBackend'])) {
             $this->defaultBackend = new IngressBackend($data['defaultBackend']);
         }
-        $this->ingressClassName = $data['ingressClassName'] ?? null;
+        $this->ingressClassName = isset($data['ingressClassName']) ? $data['ingressClassName'] : null;
         $this->rules = array_map(function ($a) {
             return new IngressRule($a);
-        }, $data['rules'] ?? []);
+        }, isset($data['rules']) ? $data['rules'] : []);
         $this->tls = array_map(function ($a) {
             return new IngressTLS($a);
-        }, $data['tls'] ?? []);
+        }, isset($data['tls']) ? $data['tls'] : []);
     }
 }

@@ -29,8 +29,8 @@ class ResourceMetricSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->name = $data['name'] ?? null;
-        $this->targetAverageUtilization = $data['targetAverageUtilization'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->targetAverageUtilization = isset($data['targetAverageUtilization']) ? $data['targetAverageUtilization'] : null;
         if (isset($data['targetAverageValue'])) {
             $this->targetAverageValue = new Quantity($data['targetAverageValue']);
         }

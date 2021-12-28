@@ -36,11 +36,11 @@ class ComponentStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->conditions = array_map(function ($a) {
             return new ComponentCondition($a);
-        }, $data['conditions'] ?? []);
-        $this->kind = $data['kind'] ?? null;
+        }, isset($data['conditions']) ? $data['conditions'] : []);
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }

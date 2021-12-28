@@ -43,8 +43,8 @@ class ClusterRoleBinding extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->kind = $data['kind'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }
@@ -53,6 +53,6 @@ class ClusterRoleBinding extends \k8s\Resource
         }
         $this->subjects = array_map(function ($a) {
             return new Subject($a);
-        }, $data['subjects'] ?? []);
+        }, isset($data['subjects']) ? $data['subjects'] : []);
     }
 }

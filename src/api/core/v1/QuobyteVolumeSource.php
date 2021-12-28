@@ -45,11 +45,11 @@ class QuobyteVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->group = $data['group'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
-        $this->registry = $data['registry'] ?? null;
-        $this->tenant = $data['tenant'] ?? null;
-        $this->user = $data['user'] ?? null;
-        $this->volume = $data['volume'] ?? null;
+        $this->group = isset($data['group']) ? $data['group'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->registry = isset($data['registry']) ? $data['registry'] : null;
+        $this->tenant = isset($data['tenant']) ? $data['tenant'] : null;
+        $this->user = isset($data['user']) ? $data['user'] : null;
+        $this->volume = isset($data['volume']) ? $data['volume'] : null;
     }
 }

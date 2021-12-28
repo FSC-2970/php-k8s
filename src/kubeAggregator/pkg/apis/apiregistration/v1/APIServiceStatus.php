@@ -19,6 +19,6 @@ class APIServiceStatus extends \k8s\Resource
     {
         $this->conditions = array_map(function ($a) {
             return new APIServiceCondition($a);
-        }, $data['conditions'] ?? []);
+        }, isset($data['conditions']) ? $data['conditions'] : []);
     }
 }

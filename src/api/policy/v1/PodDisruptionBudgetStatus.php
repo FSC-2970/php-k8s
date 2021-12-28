@@ -63,12 +63,12 @@ class PodDisruptionBudgetStatus extends \k8s\Resource
     {
         $this->conditions = array_map(function ($a) {
             return new Condition($a);
-        }, $data['conditions'] ?? []);
-        $this->currentHealthy = $data['currentHealthy'] ?? null;
-        $this->desiredHealthy = $data['desiredHealthy'] ?? null;
-        $this->disruptedPods = $data['disruptedPods'] ?? null;
-        $this->disruptionsAllowed = $data['disruptionsAllowed'] ?? null;
-        $this->expectedPods = $data['expectedPods'] ?? null;
-        $this->observedGeneration = $data['observedGeneration'] ?? null;
+        }, isset($data['conditions']) ? $data['conditions'] : []);
+        $this->currentHealthy = isset($data['currentHealthy']) ? $data['currentHealthy'] : null;
+        $this->desiredHealthy = isset($data['desiredHealthy']) ? $data['desiredHealthy'] : null;
+        $this->disruptedPods = isset($data['disruptedPods']) ? $data['disruptedPods'] : null;
+        $this->disruptionsAllowed = isset($data['disruptionsAllowed']) ? $data['disruptionsAllowed'] : null;
+        $this->expectedPods = isset($data['expectedPods']) ? $data['expectedPods'] : null;
+        $this->observedGeneration = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
     }
 }

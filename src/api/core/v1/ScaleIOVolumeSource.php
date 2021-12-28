@@ -71,17 +71,17 @@ class ScaleIOVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->fsType = $data['fsType'] ?? null;
-        $this->gateway = $data['gateway'] ?? null;
-        $this->protectionDomain = $data['protectionDomain'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->gateway = isset($data['gateway']) ? $data['gateway'] : null;
+        $this->protectionDomain = isset($data['protectionDomain']) ? $data['protectionDomain'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
         if (isset($data['secretRef'])) {
             $this->secretRef = new LocalObjectReference($data['secretRef']);
         }
-        $this->sslEnabled = $data['sslEnabled'] ?? null;
-        $this->storageMode = $data['storageMode'] ?? null;
-        $this->storagePool = $data['storagePool'] ?? null;
-        $this->system = $data['system'] ?? null;
-        $this->volumeName = $data['volumeName'] ?? null;
+        $this->sslEnabled = isset($data['sslEnabled']) ? $data['sslEnabled'] : null;
+        $this->storageMode = isset($data['storageMode']) ? $data['storageMode'] : null;
+        $this->storagePool = isset($data['storagePool']) ? $data['storagePool'] : null;
+        $this->system = isset($data['system']) ? $data['system'] : null;
+        $this->volumeName = isset($data['volumeName']) ? $data['volumeName'] : null;
     }
 }

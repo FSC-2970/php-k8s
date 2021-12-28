@@ -21,7 +21,7 @@ class LocalVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->fsType = $data['fsType'] ?? null;
-        $this->path = $data['path'] ?? null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->path = isset($data['path']) ? $data['path'] : null;
     }
 }

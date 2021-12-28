@@ -47,13 +47,13 @@ class CephFSPersistentVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->monitors = $data['monitors'] ?? [];
-        $this->path = $data['path'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
-        $this->secretFile = $data['secretFile'] ?? null;
+        $this->monitors = isset($data['monitors']) ? $data['monitors'] : [];
+        $this->path = isset($data['path']) ? $data['path'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->secretFile = isset($data['secretFile']) ? $data['secretFile'] : null;
         if (isset($data['secretRef'])) {
             $this->secretRef = new SecretReference($data['secretRef']);
         }
-        $this->user = $data['user'] ?? null;
+        $this->user = isset($data['user']) ? $data['user'] : null;
     }
 }

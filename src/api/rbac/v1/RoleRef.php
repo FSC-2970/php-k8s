@@ -27,8 +27,8 @@ class RoleRef extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiGroup = $data['apiGroup'] ?? null;
-        $this->kind = $data['kind'] ?? null;
-        $this->name = $data['name'] ?? null;
+        $this->apiGroup = isset($data['apiGroup']) ? $data['apiGroup'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
     }
 }

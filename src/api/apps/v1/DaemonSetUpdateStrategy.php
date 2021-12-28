@@ -26,6 +26,6 @@ class DaemonSetUpdateStrategy extends \k8s\Resource
         if (isset($data['rollingUpdate'])) {
             $this->rollingUpdate = new RollingUpdateDaemonSet($data['rollingUpdate']);
         }
-        $this->type = $data['type'] ?? null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

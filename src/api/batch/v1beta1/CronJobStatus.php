@@ -32,7 +32,7 @@ class CronJobStatus extends \k8s\Resource
     {
         $this->active = array_map(function ($a) {
             return new ObjectReference($a);
-        }, $data['active'] ?? []);
+        }, isset($data['active']) ? $data['active'] : []);
         if (isset($data['lastScheduleTime'])) {
             $this->lastScheduleTime = new Time($data['lastScheduleTime']);
         }

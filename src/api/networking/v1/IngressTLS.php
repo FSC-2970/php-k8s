@@ -21,7 +21,7 @@ class IngressTLS extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->hosts = $data['hosts'] ?? [];
-        $this->secretName = $data['secretName'] ?? null;
+        $this->hosts = isset($data['hosts']) ? $data['hosts'] : [];
+        $this->secretName = isset($data['secretName']) ? $data['secretName'] : null;
     }
 }

@@ -7,7 +7,4 @@ namespace k8s\apiextensionsApiserver\pkg\apis\apiextensions\v1;
  */
 class CustomResourceSubresourceStatus extends \k8s\Resource
 {
-    public function __construct($data)
-    {
-    }
 }

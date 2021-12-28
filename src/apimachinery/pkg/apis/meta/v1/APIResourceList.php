@@ -35,11 +35,11 @@ class APIResourceList extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->groupVersion = $data['groupVersion'] ?? null;
-        $this->kind = $data['kind'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->groupVersion = isset($data['groupVersion']) ? $data['groupVersion'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         $this->resources = array_map(function ($a) {
             return new APIResource($a);
-        }, $data['resources'] ?? []);
+        }, isset($data['resources']) ? $data['resources'] : []);
     }
 }

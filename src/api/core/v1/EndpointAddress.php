@@ -35,9 +35,9 @@ class EndpointAddress extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->hostname = $data['hostname'] ?? null;
-        $this->ip = $data['ip'] ?? null;
-        $this->nodeName = $data['nodeName'] ?? null;
+        $this->hostname = isset($data['hostname']) ? $data['hostname'] : null;
+        $this->ip = isset($data['ip']) ? $data['ip'] : null;
+        $this->nodeName = isset($data['nodeName']) ? $data['nodeName'] : null;
         if (isset($data['targetRef'])) {
             $this->targetRef = new ObjectReference($data['targetRef']);
         }

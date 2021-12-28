@@ -38,8 +38,8 @@ class CSINodeDriver extends \k8s\Resource
         if (isset($data['allocatable'])) {
             $this->allocatable = new VolumeNodeResources($data['allocatable']);
         }
-        $this->name = $data['name'] ?? null;
-        $this->nodeID = $data['nodeID'] ?? null;
-        $this->topologyKeys = $data['topologyKeys'] ?? [];
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->nodeID = isset($data['nodeID']) ? $data['nodeID'] : null;
+        $this->topologyKeys = isset($data['topologyKeys']) ? $data['topologyKeys'] : [];
     }
 }

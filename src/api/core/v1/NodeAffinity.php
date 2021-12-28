@@ -26,7 +26,7 @@ class NodeAffinity extends \k8s\Resource
     {
         $this->preferredDuringSchedulingIgnoredDuringExecution = array_map(function ($a) {
             return new PreferredSchedulingTerm($a);
-        }, $data['preferredDuringSchedulingIgnoredDuringExecution'] ?? []);
+        }, isset($data['preferredDuringSchedulingIgnoredDuringExecution']) ? $data['preferredDuringSchedulingIgnoredDuringExecution'] : []);
         if (isset($data['requiredDuringSchedulingIgnoredDuringExecution'])) {
             $this->requiredDuringSchedulingIgnoredDuringExecution = new NodeSelector($data['requiredDuringSchedulingIgnoredDuringExecution']);
         }

@@ -61,19 +61,19 @@ class Endpoint extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->addresses = $data['addresses'] ?? [];
+        $this->addresses = isset($data['addresses']) ? $data['addresses'] : [];
         if (isset($data['conditions'])) {
             $this->conditions = new EndpointConditions($data['conditions']);
         }
-        $this->deprecatedTopology = $data['deprecatedTopology'] ?? null;
+        $this->deprecatedTopology = isset($data['deprecatedTopology']) ? $data['deprecatedTopology'] : null;
         if (isset($data['hints'])) {
             $this->hints = new EndpointHints($data['hints']);
         }
-        $this->hostname = $data['hostname'] ?? null;
-        $this->nodeName = $data['nodeName'] ?? null;
+        $this->hostname = isset($data['hostname']) ? $data['hostname'] : null;
+        $this->nodeName = isset($data['nodeName']) ? $data['nodeName'] : null;
         if (isset($data['targetRef'])) {
             $this->targetRef = new ObjectReference($data['targetRef']);
         }
-        $this->zone = $data['zone'] ?? null;
+        $this->zone = isset($data['zone']) ? $data['zone'] : null;
     }
 }

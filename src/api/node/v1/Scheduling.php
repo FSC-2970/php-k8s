@@ -23,9 +23,9 @@ class Scheduling extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->nodeSelector = $data['nodeSelector'] ?? null;
+        $this->nodeSelector = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
         $this->tolerations = array_map(function ($a) {
             return new Toleration($a);
-        }, $data['tolerations'] ?? []);
+        }, isset($data['tolerations']) ? $data['tolerations'] : []);
     }
 }

@@ -118,9 +118,9 @@ class Event extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->action = $data['action'] ?? null;
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->deprecatedCount = $data['deprecatedCount'] ?? null;
+        $this->action = isset($data['action']) ? $data['action'] : null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->deprecatedCount = isset($data['deprecatedCount']) ? $data['deprecatedCount'] : null;
         if (isset($data['deprecatedFirstTimestamp'])) {
             $this->deprecatedFirstTimestamp = new Time($data['deprecatedFirstTimestamp']);
         }
@@ -133,23 +133,23 @@ class Event extends \k8s\Resource
         if (isset($data['eventTime'])) {
             $this->eventTime = new MicroTime($data['eventTime']);
         }
-        $this->kind = $data['kind'] ?? null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }
-        $this->note = $data['note'] ?? null;
-        $this->reason = $data['reason'] ?? null;
+        $this->note = isset($data['note']) ? $data['note'] : null;
+        $this->reason = isset($data['reason']) ? $data['reason'] : null;
         if (isset($data['regarding'])) {
             $this->regarding = new ObjectReference($data['regarding']);
         }
         if (isset($data['related'])) {
             $this->related = new ObjectReference($data['related']);
         }
-        $this->reportingController = $data['reportingController'] ?? null;
-        $this->reportingInstance = $data['reportingInstance'] ?? null;
+        $this->reportingController = isset($data['reportingController']) ? $data['reportingController'] : null;
+        $this->reportingInstance = isset($data['reportingInstance']) ? $data['reportingInstance'] : null;
         if (isset($data['series'])) {
             $this->series = new EventSeries($data['series']);
         }
-        $this->type = $data['type'] ?? null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

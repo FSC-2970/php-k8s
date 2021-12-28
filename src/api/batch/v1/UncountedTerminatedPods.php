@@ -21,7 +21,7 @@ class UncountedTerminatedPods extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->failed = $data['failed'] ?? [];
-        $this->succeeded = $data['succeeded'] ?? [];
+        $this->failed = isset($data['failed']) ? $data['failed'] : [];
+        $this->succeeded = isset($data['succeeded']) ? $data['succeeded'] : [];
     }
 }

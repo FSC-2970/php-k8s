@@ -41,12 +41,12 @@ class CSIVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->driver = $data['driver'] ?? null;
-        $this->fsType = $data['fsType'] ?? null;
+        $this->driver = isset($data['driver']) ? $data['driver'] : null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
         if (isset($data['nodePublishSecretRef'])) {
             $this->nodePublishSecretRef = new LocalObjectReference($data['nodePublishSecretRef']);
         }
-        $this->readOnly = $data['readOnly'] ?? null;
-        $this->volumeAttributes = $data['volumeAttributes'] ?? null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->volumeAttributes = isset($data['volumeAttributes']) ? $data['volumeAttributes'] : null;
     }
 }

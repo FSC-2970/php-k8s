@@ -39,8 +39,8 @@ class DownwardAPIVolumeFile extends \k8s\Resource
         if (isset($data['fieldRef'])) {
             $this->fieldRef = new ObjectFieldSelector($data['fieldRef']);
         }
-        $this->mode = $data['mode'] ?? null;
-        $this->path = $data['path'] ?? null;
+        $this->mode = isset($data['mode']) ? $data['mode'] : null;
+        $this->path = isset($data['path']) ? $data['path'] : null;
         if (isset($data['resourceFieldRef'])) {
             $this->resourceFieldRef = new ResourceFieldSelector($data['resourceFieldRef']);
         }

@@ -19,6 +19,6 @@ class CSINodeSpec extends \k8s\Resource
     {
         $this->drivers = array_map(function ($a) {
             return new CSINodeDriver($a);
-        }, $data['drivers'] ?? []);
+        }, isset($data['drivers']) ? $data['drivers'] : []);
     }
 }

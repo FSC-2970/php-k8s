@@ -41,10 +41,10 @@ class FlexVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->driver = $data['driver'] ?? null;
-        $this->fsType = $data['fsType'] ?? null;
-        $this->options = $data['options'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
+        $this->driver = isset($data['driver']) ? $data['driver'] : null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->options = isset($data['options']) ? $data['options'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
         if (isset($data['secretRef'])) {
             $this->secretRef = new LocalObjectReference($data['secretRef']);
         }

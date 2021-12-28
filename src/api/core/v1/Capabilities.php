@@ -21,7 +21,7 @@ class Capabilities extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->add = $data['add'] ?? [];
-        $this->drop = $data['drop'] ?? [];
+        $this->add = isset($data['add']) ? $data['add'] : [];
+        $this->drop = isset($data['drop']) ? $data['drop'] : [];
     }
 }

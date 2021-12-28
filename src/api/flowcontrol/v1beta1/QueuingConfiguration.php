@@ -27,8 +27,8 @@ class QueuingConfiguration extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->handSize = $data['handSize'] ?? null;
-        $this->queueLengthLimit = $data['queueLengthLimit'] ?? null;
-        $this->queues = $data['queues'] ?? null;
+        $this->handSize = isset($data['handSize']) ? $data['handSize'] : null;
+        $this->queueLengthLimit = isset($data['queueLengthLimit']) ? $data['queueLengthLimit'] : null;
+        $this->queues = isset($data['queues']) ? $data['queues'] : null;
     }
 }

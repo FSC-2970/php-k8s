@@ -21,7 +21,7 @@ class ServerAddressByClientCIDR extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->clientCIDR = $data['clientCIDR'] ?? null;
-        $this->serverAddress = $data['serverAddress'] ?? null;
+        $this->clientCIDR = isset($data['clientCIDR']) ? $data['clientCIDR'] : null;
+        $this->serverAddress = isset($data['serverAddress']) ? $data['serverAddress'] : null;
     }
 }

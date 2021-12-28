@@ -42,7 +42,7 @@ class ExternalMetricStatus extends \k8s\Resource
         if (isset($data['currentValue'])) {
             $this->currentValue = new Quantity($data['currentValue']);
         }
-        $this->metricName = $data['metricName'] ?? null;
+        $this->metricName = isset($data['metricName']) ? $data['metricName'] : null;
         if (isset($data['metricSelector'])) {
             $this->metricSelector = new LabelSelector($data['metricSelector']);
         }

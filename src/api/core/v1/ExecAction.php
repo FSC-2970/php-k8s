@@ -15,6 +15,6 @@ class ExecAction extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->command = $data['command'] ?? [];
+        $this->command = isset($data['command']) ? $data['command'] : [];
     }
 }

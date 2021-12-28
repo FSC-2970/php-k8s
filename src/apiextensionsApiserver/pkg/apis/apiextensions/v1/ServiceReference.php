@@ -33,9 +33,9 @@ class ServiceReference extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->name = $data['name'] ?? null;
-        $this->namespace = $data['namespace'] ?? null;
-        $this->path = $data['path'] ?? null;
-        $this->port = $data['port'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->namespace = isset($data['namespace']) ? $data['namespace'] : null;
+        $this->path = isset($data['path']) ? $data['path'] : null;
+        $this->port = isset($data['port']) ? $data['port'] : null;
     }
 }

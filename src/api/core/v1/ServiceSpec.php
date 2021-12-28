@@ -130,28 +130,28 @@ class ServiceSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->allocateLoadBalancerNodePorts = $data['allocateLoadBalancerNodePorts'] ?? null;
-        $this->clusterIP = $data['clusterIP'] ?? null;
-        $this->clusterIPs = $data['clusterIPs'] ?? [];
-        $this->externalIPs = $data['externalIPs'] ?? [];
-        $this->externalName = $data['externalName'] ?? null;
-        $this->externalTrafficPolicy = $data['externalTrafficPolicy'] ?? null;
-        $this->healthCheckNodePort = $data['healthCheckNodePort'] ?? null;
-        $this->internalTrafficPolicy = $data['internalTrafficPolicy'] ?? null;
-        $this->ipFamilies = $data['ipFamilies'] ?? [];
-        $this->ipFamilyPolicy = $data['ipFamilyPolicy'] ?? null;
-        $this->loadBalancerClass = $data['loadBalancerClass'] ?? null;
-        $this->loadBalancerIP = $data['loadBalancerIP'] ?? null;
-        $this->loadBalancerSourceRanges = $data['loadBalancerSourceRanges'] ?? [];
+        $this->allocateLoadBalancerNodePorts = isset($data['allocateLoadBalancerNodePorts']) ? $data['allocateLoadBalancerNodePorts'] : null;
+        $this->clusterIP = isset($data['clusterIP']) ? $data['clusterIP'] : null;
+        $this->clusterIPs = isset($data['clusterIPs']) ? $data['clusterIPs'] : [];
+        $this->externalIPs = isset($data['externalIPs']) ? $data['externalIPs'] : [];
+        $this->externalName = isset($data['externalName']) ? $data['externalName'] : null;
+        $this->externalTrafficPolicy = isset($data['externalTrafficPolicy']) ? $data['externalTrafficPolicy'] : null;
+        $this->healthCheckNodePort = isset($data['healthCheckNodePort']) ? $data['healthCheckNodePort'] : null;
+        $this->internalTrafficPolicy = isset($data['internalTrafficPolicy']) ? $data['internalTrafficPolicy'] : null;
+        $this->ipFamilies = isset($data['ipFamilies']) ? $data['ipFamilies'] : [];
+        $this->ipFamilyPolicy = isset($data['ipFamilyPolicy']) ? $data['ipFamilyPolicy'] : null;
+        $this->loadBalancerClass = isset($data['loadBalancerClass']) ? $data['loadBalancerClass'] : null;
+        $this->loadBalancerIP = isset($data['loadBalancerIP']) ? $data['loadBalancerIP'] : null;
+        $this->loadBalancerSourceRanges = isset($data['loadBalancerSourceRanges']) ? $data['loadBalancerSourceRanges'] : [];
         $this->ports = array_map(function ($a) {
             return new ServicePort($a);
-        }, $data['ports'] ?? []);
-        $this->publishNotReadyAddresses = $data['publishNotReadyAddresses'] ?? null;
-        $this->selector = $data['selector'] ?? null;
-        $this->sessionAffinity = $data['sessionAffinity'] ?? null;
+        }, isset($data['ports']) ? $data['ports'] : []);
+        $this->publishNotReadyAddresses = isset($data['publishNotReadyAddresses']) ? $data['publishNotReadyAddresses'] : null;
+        $this->selector = isset($data['selector']) ? $data['selector'] : null;
+        $this->sessionAffinity = isset($data['sessionAffinity']) ? $data['sessionAffinity'] : null;
         if (isset($data['sessionAffinityConfig'])) {
             $this->sessionAffinityConfig = new SessionAffinityConfig($data['sessionAffinityConfig']);
         }
-        $this->type = $data['type'] ?? null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

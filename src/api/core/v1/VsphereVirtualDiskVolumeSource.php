@@ -33,9 +33,9 @@ class VsphereVirtualDiskVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->fsType = $data['fsType'] ?? null;
-        $this->storagePolicyID = $data['storagePolicyID'] ?? null;
-        $this->storagePolicyName = $data['storagePolicyName'] ?? null;
-        $this->volumePath = $data['volumePath'] ?? null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->storagePolicyID = isset($data['storagePolicyID']) ? $data['storagePolicyID'] : null;
+        $this->storagePolicyName = isset($data['storagePolicyName']) ? $data['storagePolicyName'] : null;
+        $this->volumePath = isset($data['volumePath']) ? $data['volumePath'] : null;
     }
 }

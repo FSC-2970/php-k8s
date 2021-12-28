@@ -11,7 +11,4 @@ namespace k8s\apimachinery\pkg\apis\meta\v1;
  */
 class FieldsV1 extends \k8s\Resource
 {
-    public function __construct($data)
-    {
-    }
 }

@@ -41,7 +41,7 @@ class PodAffinityTerm extends \k8s\Resource
         if (isset($data['namespaceSelector'])) {
             $this->namespaceSelector = new LabelSelector($data['namespaceSelector']);
         }
-        $this->namespaces = $data['namespaces'] ?? [];
-        $this->topologyKey = $data['topologyKey'] ?? null;
+        $this->namespaces = isset($data['namespaces']) ? $data['namespaces'] : [];
+        $this->topologyKey = isset($data['topologyKey']) ? $data['topologyKey'] : null;
     }
 }

@@ -14,9 +14,10 @@
         }
     },
     "require": {
-        "guzzlehttp/guzzle": "^6.5"
+        "php": ">=5.6",
+        "guzzlehttp/guzzle": "*"
     },
     "require-dev": {
-        "symfony/var-dumper": "^4.4"
+        "symfony/var-dumper": "*"
     }
 }

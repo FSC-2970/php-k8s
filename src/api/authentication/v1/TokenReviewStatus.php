@@ -35,9 +35,9 @@ class TokenReviewStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->audiences = $data['audiences'] ?? [];
-        $this->authenticated = $data['authenticated'] ?? null;
-        $this->error = $data['error'] ?? null;
+        $this->audiences = isset($data['audiences']) ? $data['audiences'] : [];
+        $this->authenticated = isset($data['authenticated']) ? $data['authenticated'] : null;
+        $this->error = isset($data['error']) ? $data['error'] : null;
         if (isset($data['user'])) {
             $this->user = new UserInfo($data['user']);
         }

@@ -71,17 +71,17 @@ class DaemonSetStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->collisionCount = $data['collisionCount'] ?? null;
+        $this->collisionCount = isset($data['collisionCount']) ? $data['collisionCount'] : null;
         $this->conditions = array_map(function ($a) {
             return new DaemonSetCondition($a);
-        }, $data['conditions'] ?? []);
-        $this->currentNumberScheduled = $data['currentNumberScheduled'] ?? null;
-        $this->desiredNumberScheduled = $data['desiredNumberScheduled'] ?? null;
-        $this->numberAvailable = $data['numberAvailable'] ?? null;
-        $this->numberMisscheduled = $data['numberMisscheduled'] ?? null;
-        $this->numberReady = $data['numberReady'] ?? null;
-        $this->numberUnavailable = $data['numberUnavailable'] ?? null;
-        $this->observedGeneration = $data['observedGeneration'] ?? null;
-        $this->updatedNumberScheduled = $data['updatedNumberScheduled'] ?? null;
+        }, isset($data['conditions']) ? $data['conditions'] : []);
+        $this->currentNumberScheduled = isset($data['currentNumberScheduled']) ? $data['currentNumberScheduled'] : null;
+        $this->desiredNumberScheduled = isset($data['desiredNumberScheduled']) ? $data['desiredNumberScheduled'] : null;
+        $this->numberAvailable = isset($data['numberAvailable']) ? $data['numberAvailable'] : null;
+        $this->numberMisscheduled = isset($data['numberMisscheduled']) ? $data['numberMisscheduled'] : null;
+        $this->numberReady = isset($data['numberReady']) ? $data['numberReady'] : null;
+        $this->numberUnavailable = isset($data['numberUnavailable']) ? $data['numberUnavailable'] : null;
+        $this->observedGeneration = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
+        $this->updatedNumberScheduled = isset($data['updatedNumberScheduled']) ? $data['updatedNumberScheduled'] : null;
     }
 }

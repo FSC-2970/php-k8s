@@ -19,6 +19,6 @@ class AggregationRule extends \k8s\Resource
     {
         $this->clusterRoleSelectors = array_map(function ($a) {
             return new LabelSelector($a);
-        }, $data['clusterRoleSelectors'] ?? []);
+        }, isset($data['clusterRoleSelectors']) ? $data['clusterRoleSelectors'] : []);
     }
 }

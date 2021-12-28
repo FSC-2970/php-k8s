@@ -15,6 +15,6 @@ class PodReadinessGate extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->conditionType = $data['conditionType'] ?? null;
+        $this->conditionType = isset($data['conditionType']) ? $data['conditionType'] : null;
     }
 }

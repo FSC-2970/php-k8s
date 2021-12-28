@@ -21,7 +21,7 @@ class TokenRequest extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->audience = $data['audience'] ?? null;
-        $this->expirationSeconds = $data['expirationSeconds'] ?? null;
+        $this->audience = isset($data['audience']) ? $data['audience'] : null;
+        $this->expirationSeconds = isset($data['expirationSeconds']) ? $data['expirationSeconds'] : null;
     }
 }

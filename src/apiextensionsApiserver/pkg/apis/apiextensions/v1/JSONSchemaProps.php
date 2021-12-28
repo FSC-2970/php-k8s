@@ -272,8 +272,8 @@ class JSONSchemaProps extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->ref = $data['$ref'] ?? null;
-        $this->schema = $data['$schema'] ?? null;
+        $this->ref = isset($data['$ref']) ? $data['$ref'] : null;
+        $this->schema = isset($data['$schema']) ? $data['$schema'] : null;
         if (isset($data['additionalItems'])) {
             $this->additionalItems = new JSONSchemaPropsOrBool($data['additionalItems']);
         }
@@ -282,60 +282,60 @@ class JSONSchemaProps extends \k8s\Resource
         }
         $this->allOf = array_map(function ($a) {
             return new JSONSchemaProps($a);
-        }, $data['allOf'] ?? []);
+        }, isset($data['allOf']) ? $data['allOf'] : []);
         $this->anyOf = array_map(function ($a) {
             return new JSONSchemaProps($a);
-        }, $data['anyOf'] ?? []);
+        }, isset($data['anyOf']) ? $data['anyOf'] : []);
         if (isset($data['default'])) {
             $this->default = new JSON($data['default']);
         }
-        $this->definitions = $data['definitions'] ?? null;
-        $this->dependencies = $data['dependencies'] ?? null;
-        $this->description = $data['description'] ?? null;
+        $this->definitions = isset($data['definitions']) ? $data['definitions'] : null;
+        $this->dependencies = isset($data['dependencies']) ? $data['dependencies'] : null;
+        $this->description = isset($data['description']) ? $data['description'] : null;
         $this->enum = array_map(function ($a) {
             return new JSON($a);
-        }, $data['enum'] ?? []);
+        }, isset($data['enum']) ? $data['enum'] : []);
         if (isset($data['example'])) {
             $this->example = new JSON($data['example']);
         }
-        $this->exclusiveMaximum = $data['exclusiveMaximum'] ?? null;
-        $this->exclusiveMinimum = $data['exclusiveMinimum'] ?? null;
+        $this->exclusiveMaximum = isset($data['exclusiveMaximum']) ? $data['exclusiveMaximum'] : null;
+        $this->exclusiveMinimum = isset($data['exclusiveMinimum']) ? $data['exclusiveMinimum'] : null;
         if (isset($data['externalDocs'])) {
             $this->externalDocs = new ExternalDocumentation($data['externalDocs']);
         }
-        $this->format = $data['format'] ?? null;
-        $this->id = $data['id'] ?? null;
+        $this->format = isset($data['format']) ? $data['format'] : null;
+        $this->id = isset($data['id']) ? $data['id'] : null;
         if (isset($data['items'])) {
             $this->items = new JSONSchemaPropsOrArray($data['items']);
         }
-        $this->maxItems = $data['maxItems'] ?? null;
-        $this->maxLength = $data['maxLength'] ?? null;
-        $this->maxProperties = $data['maxProperties'] ?? null;
-        $this->maximum = $data['maximum'] ?? null;
-        $this->minItems = $data['minItems'] ?? null;
-        $this->minLength = $data['minLength'] ?? null;
-        $this->minProperties = $data['minProperties'] ?? null;
-        $this->minimum = $data['minimum'] ?? null;
-        $this->multipleOf = $data['multipleOf'] ?? null;
+        $this->maxItems = isset($data['maxItems']) ? $data['maxItems'] : null;
+        $this->maxLength = isset($data['maxLength']) ? $data['maxLength'] : null;
+        $this->maxProperties = isset($data['maxProperties']) ? $data['maxProperties'] : null;
+        $this->maximum = isset($data['maximum']) ? $data['maximum'] : null;
+        $this->minItems = isset($data['minItems']) ? $data['minItems'] : null;
+        $this->minLength = isset($data['minLength']) ? $data['minLength'] : null;
+        $this->minProperties = isset($data['minProperties']) ? $data['minProperties'] : null;
+        $this->minimum = isset($data['minimum']) ? $data['minimum'] : null;
+        $this->multipleOf = isset($data['multipleOf']) ? $data['multipleOf'] : null;
         if (isset($data['not'])) {
             $this->not = new JSONSchemaProps($data['not']);
         }
-        $this->nullable = $data['nullable'] ?? null;
+        $this->nullable = isset($data['nullable']) ? $data['nullable'] : null;
         $this->oneOf = array_map(function ($a) {
             return new JSONSchemaProps($a);
-        }, $data['oneOf'] ?? []);
-        $this->pattern = $data['pattern'] ?? null;
-        $this->patternProperties = $data['patternProperties'] ?? null;
-        $this->properties = $data['properties'] ?? null;
-        $this->required = $data['required'] ?? [];
-        $this->title = $data['title'] ?? null;
-        $this->type = $data['type'] ?? null;
-        $this->uniqueItems = $data['uniqueItems'] ?? null;
-        $this->xKubernetesEmbeddedResource = $data['x-kubernetes-embedded-resource'] ?? null;
-        $this->xKubernetesIntOrString = $data['x-kubernetes-int-or-string'] ?? null;
-        $this->xKubernetesListMapKeys = $data['x-kubernetes-list-map-keys'] ?? [];
-        $this->xKubernetesListType = $data['x-kubernetes-list-type'] ?? null;
-        $this->xKubernetesMapType = $data['x-kubernetes-map-type'] ?? null;
-        $this->xKubernetesPreserveUnknownFields = $data['x-kubernetes-preserve-unknown-fields'] ?? null;
+        }, isset($data['oneOf']) ? $data['oneOf'] : []);
+        $this->pattern = isset($data['pattern']) ? $data['pattern'] : null;
+        $this->patternProperties = isset($data['patternProperties']) ? $data['patternProperties'] : null;
+        $this->properties = isset($data['properties']) ? $data['properties'] : null;
+        $this->required = isset($data['required']) ? $data['required'] : [];
+        $this->title = isset($data['title']) ? $data['title'] : null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
+        $this->uniqueItems = isset($data['uniqueItems']) ? $data['uniqueItems'] : null;
+        $this->xKubernetesEmbeddedResource = isset($data['x-kubernetes-embedded-resource']) ? $data['x-kubernetes-embedded-resource'] : null;
+        $this->xKubernetesIntOrString = isset($data['x-kubernetes-int-or-string']) ? $data['x-kubernetes-int-or-string'] : null;
+        $this->xKubernetesListMapKeys = isset($data['x-kubernetes-list-map-keys']) ? $data['x-kubernetes-list-map-keys'] : [];
+        $this->xKubernetesListType = isset($data['x-kubernetes-list-type']) ? $data['x-kubernetes-list-type'] : null;
+        $this->xKubernetesMapType = isset($data['x-kubernetes-map-type']) ? $data['x-kubernetes-map-type'] : null;
+        $this->xKubernetesPreserveUnknownFields = isset($data['x-kubernetes-preserve-unknown-fields']) ? $data['x-kubernetes-preserve-unknown-fields'] : null;
     }
 }

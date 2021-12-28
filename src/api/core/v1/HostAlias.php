@@ -21,7 +21,7 @@ class HostAlias extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->hostnames = $data['hostnames'] ?? [];
-        $this->ip = $data['ip'] ?? null;
+        $this->hostnames = isset($data['hostnames']) ? $data['hostnames'] : [];
+        $this->ip = isset($data['ip']) ? $data['ip'] : null;
     }
 }

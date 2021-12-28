@@ -44,9 +44,9 @@ class ReplicationControllerCondition extends \k8s\Resource
         if (isset($data['lastTransitionTime'])) {
             $this->lastTransitionTime = new Time($data['lastTransitionTime']);
         }
-        $this->message = $data['message'] ?? null;
-        $this->reason = $data['reason'] ?? null;
-        $this->status = $data['status'] ?? null;
-        $this->type = $data['type'] ?? null;
+        $this->message = isset($data['message']) ? $data['message'] : null;
+        $this->reason = isset($data['reason']) ? $data['reason'] : null;
+        $this->status = isset($data['status']) ? $data['status'] : null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

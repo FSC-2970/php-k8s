@@ -49,9 +49,9 @@ class RuntimeClass extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->handler = $data['handler'] ?? null;
-        $this->kind = $data['kind'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->handler = isset($data['handler']) ? $data['handler'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }

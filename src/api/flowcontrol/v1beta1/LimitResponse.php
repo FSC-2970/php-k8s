@@ -26,6 +26,6 @@ class LimitResponse extends \k8s\Resource
         if (isset($data['queuing'])) {
             $this->queuing = new QueuingConfiguration($data['queuing']);
         }
-        $this->type = $data['type'] ?? null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

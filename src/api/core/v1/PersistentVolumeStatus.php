@@ -27,8 +27,8 @@ class PersistentVolumeStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->message = $data['message'] ?? null;
-        $this->phase = $data['phase'] ?? null;
-        $this->reason = $data['reason'] ?? null;
+        $this->message = isset($data['message']) ? $data['message'] : null;
+        $this->phase = isset($data['phase']) ? $data['phase'] : null;
+        $this->reason = isset($data['reason']) ? $data['reason'] : null;
     }
 }

@@ -34,9 +34,9 @@ class ResourceRule extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiGroups = $data['apiGroups'] ?? [];
-        $this->resourceNames = $data['resourceNames'] ?? [];
-        $this->resources = $data['resources'] ?? [];
-        $this->verbs = $data['verbs'] ?? [];
+        $this->apiGroups = isset($data['apiGroups']) ? $data['apiGroups'] : [];
+        $this->resourceNames = isset($data['resourceNames']) ? $data['resourceNames'] : [];
+        $this->resources = isset($data['resources']) ? $data['resources'] : [];
+        $this->verbs = isset($data['verbs']) ? $data['verbs'] : [];
     }
 }

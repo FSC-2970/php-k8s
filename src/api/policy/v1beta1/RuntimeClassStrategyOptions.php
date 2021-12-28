@@ -21,7 +21,7 @@ class RuntimeClassStrategyOptions extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->allowedRuntimeClassNames = $data['allowedRuntimeClassNames'] ?? [];
-        $this->defaultRuntimeClassName = $data['defaultRuntimeClassName'] ?? null;
+        $this->allowedRuntimeClassNames = isset($data['allowedRuntimeClassNames']) ? $data['allowedRuntimeClassNames'] : [];
+        $this->defaultRuntimeClassName = isset($data['defaultRuntimeClassName']) ? $data['defaultRuntimeClassName'] : null;
     }
 }

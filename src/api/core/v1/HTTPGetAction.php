@@ -42,14 +42,14 @@ class HTTPGetAction extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->host = $data['host'] ?? null;
+        $this->host = isset($data['host']) ? $data['host'] : null;
         $this->httpHeaders = array_map(function ($a) {
             return new HTTPHeader($a);
-        }, $data['httpHeaders'] ?? []);
-        $this->path = $data['path'] ?? null;
+        }, isset($data['httpHeaders']) ? $data['httpHeaders'] : []);
+        $this->path = isset($data['path']) ? $data['path'] : null;
         if (isset($data['port'])) {
             $this->port = new IntOrString($data['port']);
         }
-        $this->scheme = $data['scheme'] ?? null;
+        $this->scheme = isset($data['scheme']) ? $data['scheme'] : null;
     }
 }

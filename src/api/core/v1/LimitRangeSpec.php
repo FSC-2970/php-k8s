@@ -19,6 +19,6 @@ class LimitRangeSpec extends \k8s\Resource
     {
         $this->limits = array_map(function ($a) {
             return new LimitRangeItem($a);
-        }, $data['limits'] ?? []);
+        }, isset($data['limits']) ? $data['limits'] : []);
     }
 }

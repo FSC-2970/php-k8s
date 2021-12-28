@@ -23,7 +23,7 @@ class VolumeError extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->message = $data['message'] ?? null;
+        $this->message = isset($data['message']) ? $data['message'] : null;
         if (isset($data['time'])) {
             $this->time = new Time($data['time']);
         }

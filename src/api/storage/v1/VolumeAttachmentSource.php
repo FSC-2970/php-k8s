@@ -26,6 +26,6 @@ class VolumeAttachmentSource extends \k8s\Resource
         if (isset($data['inlineVolumeSpec'])) {
             $this->inlineVolumeSpec = new PersistentVolumeSpec($data['inlineVolumeSpec']);
         }
-        $this->persistentVolumeName = $data['persistentVolumeName'] ?? null;
+        $this->persistentVolumeName = isset($data['persistentVolumeName']) ? $data['persistentVolumeName'] : null;
     }
 }

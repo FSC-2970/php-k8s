@@ -103,13 +103,13 @@ class CertificateSigningRequestSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->expirationSeconds = $data['expirationSeconds'] ?? null;
-        $this->extra = $data['extra'] ?? null;
-        $this->groups = $data['groups'] ?? [];
-        $this->request = $data['request'] ?? null;
-        $this->signerName = $data['signerName'] ?? null;
-        $this->uid = $data['uid'] ?? null;
-        $this->usages = $data['usages'] ?? [];
-        $this->username = $data['username'] ?? null;
+        $this->expirationSeconds = isset($data['expirationSeconds']) ? $data['expirationSeconds'] : null;
+        $this->extra = isset($data['extra']) ? $data['extra'] : null;
+        $this->groups = isset($data['groups']) ? $data['groups'] : [];
+        $this->request = isset($data['request']) ? $data['request'] : null;
+        $this->signerName = isset($data['signerName']) ? $data['signerName'] : null;
+        $this->uid = isset($data['uid']) ? $data['uid'] : null;
+        $this->usages = isset($data['usages']) ? $data['usages'] : [];
+        $this->username = isset($data['username']) ? $data['username'] : null;
     }
 }

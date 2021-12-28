@@ -48,17 +48,17 @@ class APIGroup extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->kind = $data['kind'] ?? null;
-        $this->name = $data['name'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
         if (isset($data['preferredVersion'])) {
             $this->preferredVersion = new GroupVersionForDiscovery($data['preferredVersion']);
         }
         $this->serverAddressByClientCIDRs = array_map(function ($a) {
             return new ServerAddressByClientCIDR($a);
-        }, $data['serverAddressByClientCIDRs'] ?? []);
+        }, isset($data['serverAddressByClientCIDRs']) ? $data['serverAddressByClientCIDRs'] : []);
         $this->versions = array_map(function ($a) {
             return new GroupVersionForDiscovery($a);
-        }, $data['versions'] ?? []);
+        }, isset($data['versions']) ? $data['versions'] : []);
     }
 }

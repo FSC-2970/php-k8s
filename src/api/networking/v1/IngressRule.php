@@ -29,7 +29,7 @@ class IngressRule extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->host = $data['host'] ?? null;
+        $this->host = isset($data['host']) ? $data['host'] : null;
         if (isset($data['http'])) {
             $this->http = new HTTPIngressRuleValue($data['http']);
         }

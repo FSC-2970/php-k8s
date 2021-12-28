@@ -21,7 +21,7 @@ class ServiceBackendPort extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->name = $data['name'] ?? null;
-        $this->number = $data['number'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->number = isset($data['number']) ? $data['number'] : null;
     }
 }

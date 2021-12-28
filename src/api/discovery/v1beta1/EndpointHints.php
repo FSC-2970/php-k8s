@@ -19,6 +19,6 @@ class EndpointHints extends \k8s\Resource
     {
         $this->forZones = array_map(function ($a) {
             return new ForZone($a);
-        }, $data['forZones'] ?? []);
+        }, isset($data['forZones']) ? $data['forZones'] : []);
     }
 }

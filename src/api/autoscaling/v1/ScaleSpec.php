@@ -15,6 +15,6 @@ class ScaleSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->replicas = $data['replicas'] ?? null;
+        $this->replicas = isset($data['replicas']) ? $data['replicas'] : null;
     }
 }

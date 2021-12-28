@@ -30,7 +30,7 @@ class PodsMetricSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->metricName = $data['metricName'] ?? null;
+        $this->metricName = isset($data['metricName']) ? $data['metricName'] : null;
         if (isset($data['selector'])) {
             $this->selector = new LabelSelector($data['selector']);
         }

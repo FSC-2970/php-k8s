@@ -21,7 +21,7 @@ class SecretReference extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->name = $data['name'] ?? null;
-        $this->namespace = $data['namespace'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->namespace = isset($data['namespace']) ? $data['namespace'] : null;
     }
 }

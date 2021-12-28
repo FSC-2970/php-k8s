@@ -26,6 +26,6 @@ class TokenRequestStatus extends \k8s\Resource
         if (isset($data['expirationTimestamp'])) {
             $this->expirationTimestamp = new Time($data['expirationTimestamp']);
         }
-        $this->token = $data['token'] ?? null;
+        $this->token = isset($data['token']) ? $data['token'] : null;
     }
 }

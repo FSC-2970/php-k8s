@@ -25,7 +25,7 @@ class LabelSelector extends \k8s\Resource
     {
         $this->matchExpressions = array_map(function ($a) {
             return new LabelSelectorRequirement($a);
-        }, $data['matchExpressions'] ?? []);
-        $this->matchLabels = $data['matchLabels'] ?? null;
+        }, isset($data['matchExpressions']) ? $data['matchExpressions'] : []);
+        $this->matchLabels = isset($data['matchLabels']) ? $data['matchLabels'] : null;
     }
 }

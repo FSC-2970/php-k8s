@@ -45,11 +45,11 @@ class CustomResourceDefinitionNames extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->categories = $data['categories'] ?? [];
-        $this->kind = $data['kind'] ?? null;
-        $this->listKind = $data['listKind'] ?? null;
-        $this->plural = $data['plural'] ?? null;
-        $this->shortNames = $data['shortNames'] ?? [];
-        $this->singular = $data['singular'] ?? null;
+        $this->categories = isset($data['categories']) ? $data['categories'] : [];
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
+        $this->listKind = isset($data['listKind']) ? $data['listKind'] : null;
+        $this->plural = isset($data['plural']) ? $data['plural'] : null;
+        $this->shortNames = isset($data['shortNames']) ? $data['shortNames'] : [];
+        $this->singular = isset($data['singular']) ? $data['singular'] : null;
     }
 }

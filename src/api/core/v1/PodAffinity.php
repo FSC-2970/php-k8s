@@ -26,9 +26,9 @@ class PodAffinity extends \k8s\Resource
     {
         $this->preferredDuringSchedulingIgnoredDuringExecution = array_map(function ($a) {
             return new WeightedPodAffinityTerm($a);
-        }, $data['preferredDuringSchedulingIgnoredDuringExecution'] ?? []);
+        }, isset($data['preferredDuringSchedulingIgnoredDuringExecution']) ? $data['preferredDuringSchedulingIgnoredDuringExecution'] : []);
         $this->requiredDuringSchedulingIgnoredDuringExecution = array_map(function ($a) {
             return new PodAffinityTerm($a);
-        }, $data['requiredDuringSchedulingIgnoredDuringExecution'] ?? []);
+        }, isset($data['requiredDuringSchedulingIgnoredDuringExecution']) ? $data['requiredDuringSchedulingIgnoredDuringExecution'] : []);
     }
 }

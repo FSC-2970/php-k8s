@@ -39,13 +39,13 @@ class NetworkPolicySpec extends \k8s\Resource
     {
         $this->egress = array_map(function ($a) {
             return new NetworkPolicyEgressRule($a);
-        }, $data['egress'] ?? []);
+        }, isset($data['egress']) ? $data['egress'] : []);
         $this->ingress = array_map(function ($a) {
             return new NetworkPolicyIngressRule($a);
-        }, $data['ingress'] ?? []);
+        }, isset($data['ingress']) ? $data['ingress'] : []);
         if (isset($data['podSelector'])) {
             $this->podSelector = new LabelSelector($data['podSelector']);
         }
-        $this->policyTypes = $data['policyTypes'] ?? [];
+        $this->policyTypes = isset($data['policyTypes']) ? $data['policyTypes'] : [];
     }
 }

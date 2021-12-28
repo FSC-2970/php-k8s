@@ -19,6 +19,6 @@ class TopologySelectorTerm extends \k8s\Resource
     {
         $this->matchLabelExpressions = array_map(function ($a) {
             return new TopologySelectorLabelRequirement($a);
-        }, $data['matchLabelExpressions'] ?? []);
+        }, isset($data['matchLabelExpressions']) ? $data['matchLabelExpressions'] : []);
     }
 }

@@ -61,11 +61,11 @@ class DeploymentSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->minReadySeconds = $data['minReadySeconds'] ?? null;
-        $this->paused = $data['paused'] ?? null;
-        $this->progressDeadlineSeconds = $data['progressDeadlineSeconds'] ?? null;
-        $this->replicas = $data['replicas'] ?? null;
-        $this->revisionHistoryLimit = $data['revisionHistoryLimit'] ?? null;
+        $this->minReadySeconds = isset($data['minReadySeconds']) ? $data['minReadySeconds'] : null;
+        $this->paused = isset($data['paused']) ? $data['paused'] : null;
+        $this->progressDeadlineSeconds = isset($data['progressDeadlineSeconds']) ? $data['progressDeadlineSeconds'] : null;
+        $this->replicas = isset($data['replicas']) ? $data['replicas'] : null;
+        $this->revisionHistoryLimit = isset($data['revisionHistoryLimit']) ? $data['revisionHistoryLimit'] : null;
         if (isset($data['selector'])) {
             $this->selector = new LabelSelector($data['selector']);
         }

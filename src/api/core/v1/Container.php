@@ -151,26 +151,26 @@ class Container extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->args = $data['args'] ?? [];
-        $this->command = $data['command'] ?? [];
+        $this->args = isset($data['args']) ? $data['args'] : [];
+        $this->command = isset($data['command']) ? $data['command'] : [];
         $this->env = array_map(function ($a) {
             return new EnvVar($a);
-        }, $data['env'] ?? []);
+        }, isset($data['env']) ? $data['env'] : []);
         $this->envFrom = array_map(function ($a) {
             return new EnvFromSource($a);
-        }, $data['envFrom'] ?? []);
-        $this->image = $data['image'] ?? null;
-        $this->imagePullPolicy = $data['imagePullPolicy'] ?? null;
+        }, isset($data['envFrom']) ? $data['envFrom'] : []);
+        $this->image = isset($data['image']) ? $data['image'] : null;
+        $this->imagePullPolicy = isset($data['imagePullPolicy']) ? $data['imagePullPolicy'] : null;
         if (isset($data['lifecycle'])) {
             $this->lifecycle = new Lifecycle($data['lifecycle']);
         }
         if (isset($data['livenessProbe'])) {
             $this->livenessProbe = new Probe($data['livenessProbe']);
         }
-        $this->name = $data['name'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
         $this->ports = array_map(function ($a) {
             return new ContainerPort($a);
-        }, $data['ports'] ?? []);
+        }, isset($data['ports']) ? $data['ports'] : []);
         if (isset($data['readinessProbe'])) {
             $this->readinessProbe = new Probe($data['readinessProbe']);
         }
@@ -183,17 +183,17 @@ class Container extends \k8s\Resource
         if (isset($data['startupProbe'])) {
             $this->startupProbe = new Probe($data['startupProbe']);
         }
-        $this->stdin = $data['stdin'] ?? null;
-        $this->stdinOnce = $data['stdinOnce'] ?? null;
-        $this->terminationMessagePath = $data['terminationMessagePath'] ?? null;
-        $this->terminationMessagePolicy = $data['terminationMessagePolicy'] ?? null;
-        $this->tty = $data['tty'] ?? null;
+        $this->stdin = isset($data['stdin']) ? $data['stdin'] : null;
+        $this->stdinOnce = isset($data['stdinOnce']) ? $data['stdinOnce'] : null;
+        $this->terminationMessagePath = isset($data['terminationMessagePath']) ? $data['terminationMessagePath'] : null;
+        $this->terminationMessagePolicy = isset($data['terminationMessagePolicy']) ? $data['terminationMessagePolicy'] : null;
+        $this->tty = isset($data['tty']) ? $data['tty'] : null;
         $this->volumeDevices = array_map(function ($a) {
             return new VolumeDevice($a);
-        }, $data['volumeDevices'] ?? []);
+        }, isset($data['volumeDevices']) ? $data['volumeDevices'] : []);
         $this->volumeMounts = array_map(function ($a) {
             return new VolumeMount($a);
-        }, $data['volumeMounts'] ?? []);
-        $this->workingDir = $data['workingDir'] ?? null;
+        }, isset($data['volumeMounts']) ? $data['volumeMounts'] : []);
+        $this->workingDir = isset($data['workingDir']) ? $data['workingDir'] : null;
     }
 }

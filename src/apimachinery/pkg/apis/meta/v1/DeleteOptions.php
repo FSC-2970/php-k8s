@@ -53,14 +53,14 @@ class DeleteOptions extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->dryRun = $data['dryRun'] ?? [];
-        $this->gracePeriodSeconds = $data['gracePeriodSeconds'] ?? null;
-        $this->kind = $data['kind'] ?? null;
-        $this->orphanDependents = $data['orphanDependents'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->dryRun = isset($data['dryRun']) ? $data['dryRun'] : [];
+        $this->gracePeriodSeconds = isset($data['gracePeriodSeconds']) ? $data['gracePeriodSeconds'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
+        $this->orphanDependents = isset($data['orphanDependents']) ? $data['orphanDependents'] : null;
         if (isset($data['preconditions'])) {
             $this->preconditions = new Preconditions($data['preconditions']);
         }
-        $this->propagationPolicy = $data['propagationPolicy'] ?? null;
+        $this->propagationPolicy = isset($data['propagationPolicy']) ? $data['propagationPolicy'] : null;
     }
 }

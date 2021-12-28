@@ -21,7 +21,7 @@ class GroupVersionForDiscovery extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->groupVersion = $data['groupVersion'] ?? null;
-        $this->version = $data['version'] ?? null;
+        $this->groupVersion = isset($data['groupVersion']) ? $data['groupVersion'] : null;
+        $this->version = isset($data['version']) ? $data['version'] : null;
     }
 }

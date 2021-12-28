@@ -44,9 +44,9 @@ class LeaseSpec extends \k8s\Resource
         if (isset($data['acquireTime'])) {
             $this->acquireTime = new MicroTime($data['acquireTime']);
         }
-        $this->holderIdentity = $data['holderIdentity'] ?? null;
-        $this->leaseDurationSeconds = $data['leaseDurationSeconds'] ?? null;
-        $this->leaseTransitions = $data['leaseTransitions'] ?? null;
+        $this->holderIdentity = isset($data['holderIdentity']) ? $data['holderIdentity'] : null;
+        $this->leaseDurationSeconds = isset($data['leaseDurationSeconds']) ? $data['leaseDurationSeconds'] : null;
+        $this->leaseTransitions = isset($data['leaseTransitions']) ? $data['leaseTransitions'] : null;
         if (isset($data['renewTime'])) {
             $this->renewTime = new MicroTime($data['renewTime']);
         }

@@ -59,15 +59,15 @@ class RBDVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->fsType = $data['fsType'] ?? null;
-        $this->image = $data['image'] ?? null;
-        $this->keyring = $data['keyring'] ?? null;
-        $this->monitors = $data['monitors'] ?? [];
-        $this->pool = $data['pool'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->image = isset($data['image']) ? $data['image'] : null;
+        $this->keyring = isset($data['keyring']) ? $data['keyring'] : null;
+        $this->monitors = isset($data['monitors']) ? $data['monitors'] : [];
+        $this->pool = isset($data['pool']) ? $data['pool'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
         if (isset($data['secretRef'])) {
             $this->secretRef = new LocalObjectReference($data['secretRef']);
         }
-        $this->user = $data['user'] ?? null;
+        $this->user = isset($data['user']) ? $data['user'] : null;
     }
 }

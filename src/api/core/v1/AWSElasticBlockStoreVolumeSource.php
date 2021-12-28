@@ -35,9 +35,9 @@ class AWSElasticBlockStoreVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->fsType = $data['fsType'] ?? null;
-        $this->partition = $data['partition'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
-        $this->volumeID = $data['volumeID'] ?? null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->partition = isset($data['partition']) ? $data['partition'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->volumeID = isset($data['volumeID']) ? $data['volumeID'] : null;
     }
 }

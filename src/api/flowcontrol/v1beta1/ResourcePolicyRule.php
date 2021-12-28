@@ -39,10 +39,10 @@ class ResourcePolicyRule extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiGroups = $data['apiGroups'] ?? [];
-        $this->clusterScope = $data['clusterScope'] ?? null;
-        $this->namespaces = $data['namespaces'] ?? [];
-        $this->resources = $data['resources'] ?? [];
-        $this->verbs = $data['verbs'] ?? [];
+        $this->apiGroups = isset($data['apiGroups']) ? $data['apiGroups'] : [];
+        $this->clusterScope = isset($data['clusterScope']) ? $data['clusterScope'] : null;
+        $this->namespaces = isset($data['namespaces']) ? $data['namespaces'] : [];
+        $this->resources = isset($data['resources']) ? $data['resources'] : [];
+        $this->verbs = isset($data['verbs']) ? $data['verbs'] : [];
     }
 }

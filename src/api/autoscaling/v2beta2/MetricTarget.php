@@ -35,11 +35,11 @@ class MetricTarget extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->averageUtilization = $data['averageUtilization'] ?? null;
+        $this->averageUtilization = isset($data['averageUtilization']) ? $data['averageUtilization'] : null;
         if (isset($data['averageValue'])) {
             $this->averageValue = new Quantity($data['averageValue']);
         }
-        $this->type = $data['type'] ?? null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
         if (isset($data['value'])) {
             $this->value = new Quantity($data['value']);
         }

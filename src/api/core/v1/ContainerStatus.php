@@ -65,16 +65,16 @@ class ContainerStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->containerID = $data['containerID'] ?? null;
-        $this->image = $data['image'] ?? null;
-        $this->imageID = $data['imageID'] ?? null;
+        $this->containerID = isset($data['containerID']) ? $data['containerID'] : null;
+        $this->image = isset($data['image']) ? $data['image'] : null;
+        $this->imageID = isset($data['imageID']) ? $data['imageID'] : null;
         if (isset($data['lastState'])) {
             $this->lastState = new ContainerState($data['lastState']);
         }
-        $this->name = $data['name'] ?? null;
-        $this->ready = $data['ready'] ?? null;
-        $this->restartCount = $data['restartCount'] ?? null;
-        $this->started = $data['started'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->ready = isset($data['ready']) ? $data['ready'] : null;
+        $this->restartCount = isset($data['restartCount']) ? $data['restartCount'] : null;
+        $this->started = isset($data['started']) ? $data['started'] : null;
         if (isset($data['state'])) {
             $this->state = new ContainerState($data['state']);
         }

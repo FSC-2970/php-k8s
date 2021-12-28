@@ -23,9 +23,9 @@ class DownwardAPIVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->defaultMode = $data['defaultMode'] ?? null;
+        $this->defaultMode = isset($data['defaultMode']) ? $data['defaultMode'] : null;
         $this->items = array_map(function ($a) {
             return new DownwardAPIVolumeFile($a);
-        }, $data['items'] ?? []);
+        }, isset($data['items']) ? $data['items'] : []);
     }
 }

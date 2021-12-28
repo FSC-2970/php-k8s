@@ -37,11 +37,11 @@ class SecretVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->defaultMode = $data['defaultMode'] ?? null;
+        $this->defaultMode = isset($data['defaultMode']) ? $data['defaultMode'] : null;
         $this->items = array_map(function ($a) {
             return new KeyToPath($a);
-        }, $data['items'] ?? []);
-        $this->optional = $data['optional'] ?? null;
-        $this->secretName = $data['secretName'] ?? null;
+        }, isset($data['items']) ? $data['items'] : []);
+        $this->optional = isset($data['optional']) ? $data['optional'] : null;
+        $this->secretName = isset($data['secretName']) ? $data['secretName'] : null;
     }
 }

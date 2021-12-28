@@ -43,8 +43,8 @@ class DaemonSetSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->minReadySeconds = $data['minReadySeconds'] ?? null;
-        $this->revisionHistoryLimit = $data['revisionHistoryLimit'] ?? null;
+        $this->minReadySeconds = isset($data['minReadySeconds']) ? $data['minReadySeconds'] : null;
+        $this->revisionHistoryLimit = isset($data['revisionHistoryLimit']) ? $data['revisionHistoryLimit'] : null;
         if (isset($data['selector'])) {
             $this->selector = new LabelSelector($data['selector']);
         }

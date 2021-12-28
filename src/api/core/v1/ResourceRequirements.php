@@ -21,7 +21,7 @@ class ResourceRequirements extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->limits = $data['limits'] ?? null;
-        $this->requests = $data['requests'] ?? null;
+        $this->limits = isset($data['limits']) ? $data['limits'] : null;
+        $this->requests = isset($data['requests']) ? $data['requests'] : null;
     }
 }

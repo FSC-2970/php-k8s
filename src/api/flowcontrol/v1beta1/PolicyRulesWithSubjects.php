@@ -33,12 +33,12 @@ class PolicyRulesWithSubjects extends \k8s\Resource
     {
         $this->nonResourceRules = array_map(function ($a) {
             return new NonResourcePolicyRule($a);
-        }, $data['nonResourceRules'] ?? []);
+        }, isset($data['nonResourceRules']) ? $data['nonResourceRules'] : []);
         $this->resourceRules = array_map(function ($a) {
             return new ResourcePolicyRule($a);
-        }, $data['resourceRules'] ?? []);
+        }, isset($data['resourceRules']) ? $data['resourceRules'] : []);
         $this->subjects = array_map(function ($a) {
             return new Subject($a);
-        }, $data['subjects'] ?? []);
+        }, isset($data['subjects']) ? $data['subjects'] : []);
     }
 }

@@ -60,17 +60,17 @@ class Status extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->code = $data['code'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->code = isset($data['code']) ? $data['code'] : null;
         if (isset($data['details'])) {
             $this->details = new StatusDetails($data['details']);
         }
-        $this->kind = $data['kind'] ?? null;
-        $this->message = $data['message'] ?? null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
+        $this->message = isset($data['message']) ? $data['message'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ListMeta($data['metadata']);
         }
-        $this->reason = $data['reason'] ?? null;
-        $this->status = $data['status'] ?? null;
+        $this->reason = isset($data['reason']) ? $data['reason'] : null;
+        $this->status = isset($data['status']) ? $data['status'] : null;
     }
 }

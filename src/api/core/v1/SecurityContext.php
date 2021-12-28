@@ -80,16 +80,16 @@ class SecurityContext extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->allowPrivilegeEscalation = $data['allowPrivilegeEscalation'] ?? null;
+        $this->allowPrivilegeEscalation = isset($data['allowPrivilegeEscalation']) ? $data['allowPrivilegeEscalation'] : null;
         if (isset($data['capabilities'])) {
             $this->capabilities = new Capabilities($data['capabilities']);
         }
-        $this->privileged = $data['privileged'] ?? null;
-        $this->procMount = $data['procMount'] ?? null;
-        $this->readOnlyRootFilesystem = $data['readOnlyRootFilesystem'] ?? null;
-        $this->runAsGroup = $data['runAsGroup'] ?? null;
-        $this->runAsNonRoot = $data['runAsNonRoot'] ?? null;
-        $this->runAsUser = $data['runAsUser'] ?? null;
+        $this->privileged = isset($data['privileged']) ? $data['privileged'] : null;
+        $this->procMount = isset($data['procMount']) ? $data['procMount'] : null;
+        $this->readOnlyRootFilesystem = isset($data['readOnlyRootFilesystem']) ? $data['readOnlyRootFilesystem'] : null;
+        $this->runAsGroup = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
+        $this->runAsNonRoot = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
+        $this->runAsUser = isset($data['runAsUser']) ? $data['runAsUser'] : null;
         if (isset($data['seLinuxOptions'])) {
             $this->seLinuxOptions = new SELinuxOptions($data['seLinuxOptions']);
         }

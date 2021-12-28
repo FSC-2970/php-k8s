@@ -84,14 +84,14 @@ class CSIDriverSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->attachRequired = $data['attachRequired'] ?? null;
-        $this->fsGroupPolicy = $data['fsGroupPolicy'] ?? null;
-        $this->podInfoOnMount = $data['podInfoOnMount'] ?? null;
-        $this->requiresRepublish = $data['requiresRepublish'] ?? null;
-        $this->storageCapacity = $data['storageCapacity'] ?? null;
+        $this->attachRequired = isset($data['attachRequired']) ? $data['attachRequired'] : null;
+        $this->fsGroupPolicy = isset($data['fsGroupPolicy']) ? $data['fsGroupPolicy'] : null;
+        $this->podInfoOnMount = isset($data['podInfoOnMount']) ? $data['podInfoOnMount'] : null;
+        $this->requiresRepublish = isset($data['requiresRepublish']) ? $data['requiresRepublish'] : null;
+        $this->storageCapacity = isset($data['storageCapacity']) ? $data['storageCapacity'] : null;
         $this->tokenRequests = array_map(function ($a) {
             return new TokenRequest($a);
-        }, $data['tokenRequests'] ?? []);
-        $this->volumeLifecycleModes = $data['volumeLifecycleModes'] ?? [];
+        }, isset($data['tokenRequests']) ? $data['tokenRequests'] : []);
+        $this->volumeLifecycleModes = isset($data['volumeLifecycleModes']) ? $data['volumeLifecycleModes'] : [];
     }
 }

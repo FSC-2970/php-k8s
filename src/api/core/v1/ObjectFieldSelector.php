@@ -21,7 +21,7 @@ class ObjectFieldSelector extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->fieldPath = $data['fieldPath'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->fieldPath = isset($data['fieldPath']) ? $data['fieldPath'] : null;
     }
 }

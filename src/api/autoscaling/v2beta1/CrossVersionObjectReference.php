@@ -27,8 +27,8 @@ class CrossVersionObjectReference extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->kind = $data['kind'] ?? null;
-        $this->name = $data['name'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
     }
 }

@@ -23,7 +23,7 @@ class ResourceMetricSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->name = $data['name'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
         if (isset($data['target'])) {
             $this->target = new MetricTarget($data['target']);
         }

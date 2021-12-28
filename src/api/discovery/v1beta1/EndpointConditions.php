@@ -27,8 +27,8 @@ class EndpointConditions extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->ready = $data['ready'] ?? null;
-        $this->serving = $data['serving'] ?? null;
-        $this->terminating = $data['terminating'] ?? null;
+        $this->ready = isset($data['ready']) ? $data['ready'] : null;
+        $this->serving = isset($data['serving']) ? $data['serving'] : null;
+        $this->terminating = isset($data['terminating']) ? $data['terminating'] : null;
     }
 }

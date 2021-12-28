@@ -39,10 +39,10 @@ class ContainerPort extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->containerPort = $data['containerPort'] ?? null;
-        $this->hostIP = $data['hostIP'] ?? null;
-        $this->hostPort = $data['hostPort'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->protocol = $data['protocol'] ?? null;
+        $this->containerPort = isset($data['containerPort']) ? $data['containerPort'] : null;
+        $this->hostIP = isset($data['hostIP']) ? $data['hostIP'] : null;
+        $this->hostPort = isset($data['hostPort']) ? $data['hostPort'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->protocol = isset($data['protocol']) ? $data['protocol'] : null;
     }
 }

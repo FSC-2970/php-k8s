@@ -109,13 +109,13 @@ class ValidatingWebhook extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->admissionReviewVersions = $data['admissionReviewVersions'] ?? [];
+        $this->admissionReviewVersions = isset($data['admissionReviewVersions']) ? $data['admissionReviewVersions'] : [];
         if (isset($data['clientConfig'])) {
             $this->clientConfig = new WebhookClientConfig($data['clientConfig']);
         }
-        $this->failurePolicy = $data['failurePolicy'] ?? null;
-        $this->matchPolicy = $data['matchPolicy'] ?? null;
-        $this->name = $data['name'] ?? null;
+        $this->failurePolicy = isset($data['failurePolicy']) ? $data['failurePolicy'] : null;
+        $this->matchPolicy = isset($data['matchPolicy']) ? $data['matchPolicy'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
         if (isset($data['namespaceSelector'])) {
             $this->namespaceSelector = new LabelSelector($data['namespaceSelector']);
         }
@@ -124,8 +124,8 @@ class ValidatingWebhook extends \k8s\Resource
         }
         $this->rules = array_map(function ($a) {
             return new RuleWithOperations($a);
-        }, $data['rules'] ?? []);
-        $this->sideEffects = $data['sideEffects'] ?? null;
-        $this->timeoutSeconds = $data['timeoutSeconds'] ?? null;
+        }, isset($data['rules']) ? $data['rules'] : []);
+        $this->sideEffects = isset($data['sideEffects']) ? $data['sideEffects'] : null;
+        $this->timeoutSeconds = isset($data['timeoutSeconds']) ? $data['timeoutSeconds'] : null;
     }
 }

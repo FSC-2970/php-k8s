@@ -23,7 +23,7 @@ class IngressClassSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->controller = $data['controller'] ?? null;
+        $this->controller = isset($data['controller']) ? $data['controller'] : null;
         if (isset($data['parameters'])) {
             $this->parameters = new IngressClassParametersReference($data['parameters']);
         }

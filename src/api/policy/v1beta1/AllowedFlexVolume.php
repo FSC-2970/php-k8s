@@ -15,6 +15,6 @@ class AllowedFlexVolume extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->driver = $data['driver'] ?? null;
+        $this->driver = isset($data['driver']) ? $data['driver'] : null;
     }
 }

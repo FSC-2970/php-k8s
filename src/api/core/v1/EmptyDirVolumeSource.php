@@ -23,7 +23,7 @@ class EmptyDirVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->medium = $data['medium'] ?? null;
+        $this->medium = isset($data['medium']) ? $data['medium'] : null;
         if (isset($data['sizeLimit'])) {
             $this->sizeLimit = new Quantity($data['sizeLimit']);
         }

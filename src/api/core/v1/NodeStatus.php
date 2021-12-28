@@ -85,12 +85,12 @@ class NodeStatus extends \k8s\Resource
     {
         $this->addresses = array_map(function ($a) {
             return new NodeAddress($a);
-        }, $data['addresses'] ?? []);
-        $this->allocatable = $data['allocatable'] ?? null;
-        $this->capacity = $data['capacity'] ?? null;
+        }, isset($data['addresses']) ? $data['addresses'] : []);
+        $this->allocatable = isset($data['allocatable']) ? $data['allocatable'] : null;
+        $this->capacity = isset($data['capacity']) ? $data['capacity'] : null;
         $this->conditions = array_map(function ($a) {
             return new NodeCondition($a);
-        }, $data['conditions'] ?? []);
+        }, isset($data['conditions']) ? $data['conditions'] : []);
         if (isset($data['config'])) {
             $this->config = new NodeConfigStatus($data['config']);
         }
@@ -99,14 +99,14 @@ class NodeStatus extends \k8s\Resource
         }
         $this->images = array_map(function ($a) {
             return new ContainerImage($a);
-        }, $data['images'] ?? []);
+        }, isset($data['images']) ? $data['images'] : []);
         if (isset($data['nodeInfo'])) {
             $this->nodeInfo = new NodeSystemInfo($data['nodeInfo']);
         }
-        $this->phase = $data['phase'] ?? null;
+        $this->phase = isset($data['phase']) ? $data['phase'] : null;
         $this->volumesAttached = array_map(function ($a) {
             return new AttachedVolume($a);
-        }, $data['volumesAttached'] ?? []);
-        $this->volumesInUse = $data['volumesInUse'] ?? [];
+        }, isset($data['volumesAttached']) ? $data['volumesAttached'] : []);
+        $this->volumesInUse = isset($data['volumesInUse']) ? $data['volumesInUse'] : [];
     }
 }

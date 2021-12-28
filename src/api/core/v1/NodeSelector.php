@@ -19,6 +19,6 @@ class NodeSelector extends \k8s\Resource
     {
         $this->nodeSelectorTerms = array_map(function ($a) {
             return new NodeSelectorTerm($a);
-        }, $data['nodeSelectorTerms'] ?? []);
+        }, isset($data['nodeSelectorTerms']) ? $data['nodeSelectorTerms'] : []);
     }
 }

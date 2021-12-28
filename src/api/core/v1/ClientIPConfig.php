@@ -15,6 +15,6 @@ class ClientIPConfig extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->timeoutSeconds = $data['timeoutSeconds'] ?? null;
+        $this->timeoutSeconds = isset($data['timeoutSeconds']) ? $data['timeoutSeconds'] : null;
     }
 }

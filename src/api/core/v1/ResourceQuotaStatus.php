@@ -21,7 +21,7 @@ class ResourceQuotaStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->hard = $data['hard'] ?? null;
-        $this->used = $data['used'] ?? null;
+        $this->hard = isset($data['hard']) ? $data['hard'] : null;
+        $this->used = isset($data['used']) ? $data['used'] : null;
     }
 }

@@ -74,19 +74,19 @@ class StorageClass extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->allowVolumeExpansion = $data['allowVolumeExpansion'] ?? null;
+        $this->allowVolumeExpansion = isset($data['allowVolumeExpansion']) ? $data['allowVolumeExpansion'] : null;
         $this->allowedTopologies = array_map(function ($a) {
             return new TopologySelectorTerm($a);
-        }, $data['allowedTopologies'] ?? []);
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->kind = $data['kind'] ?? null;
+        }, isset($data['allowedTopologies']) ? $data['allowedTopologies'] : []);
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }
-        $this->mountOptions = $data['mountOptions'] ?? [];
-        $this->parameters = $data['parameters'] ?? null;
-        $this->provisioner = $data['provisioner'] ?? null;
-        $this->reclaimPolicy = $data['reclaimPolicy'] ?? null;
-        $this->volumeBindingMode = $data['volumeBindingMode'] ?? null;
+        $this->mountOptions = isset($data['mountOptions']) ? $data['mountOptions'] : [];
+        $this->parameters = isset($data['parameters']) ? $data['parameters'] : null;
+        $this->provisioner = isset($data['provisioner']) ? $data['provisioner'] : null;
+        $this->reclaimPolicy = isset($data['reclaimPolicy']) ? $data['reclaimPolicy'] : null;
+        $this->volumeBindingMode = isset($data['volumeBindingMode']) ? $data['volumeBindingMode'] : null;
     }
 }

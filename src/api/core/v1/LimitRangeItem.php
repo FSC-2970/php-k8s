@@ -45,11 +45,11 @@ class LimitRangeItem extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->default = $data['default'] ?? null;
-        $this->defaultRequest = $data['defaultRequest'] ?? null;
-        $this->max = $data['max'] ?? null;
-        $this->maxLimitRequestRatio = $data['maxLimitRequestRatio'] ?? null;
-        $this->min = $data['min'] ?? null;
-        $this->type = $data['type'] ?? null;
+        $this->default = isset($data['default']) ? $data['default'] : null;
+        $this->defaultRequest = isset($data['defaultRequest']) ? $data['defaultRequest'] : null;
+        $this->max = isset($data['max']) ? $data['max'] : null;
+        $this->maxLimitRequestRatio = isset($data['maxLimitRequestRatio']) ? $data['maxLimitRequestRatio'] : null;
+        $this->min = isset($data['min']) ? $data['min'] : null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

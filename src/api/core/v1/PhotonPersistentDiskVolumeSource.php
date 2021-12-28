@@ -21,7 +21,7 @@ class PhotonPersistentDiskVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->fsType = $data['fsType'] ?? null;
-        $this->pdID = $data['pdID'] ?? null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->pdID = isset($data['pdID']) ? $data['pdID'] : null;
     }
 }

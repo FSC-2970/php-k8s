@@ -118,9 +118,9 @@ class Event extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->action = $data['action'] ?? null;
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->count = $data['count'] ?? null;
+        $this->action = isset($data['action']) ? $data['action'] : null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->count = isset($data['count']) ? $data['count'] : null;
         if (isset($data['eventTime'])) {
             $this->eventTime = new MicroTime($data['eventTime']);
         }
@@ -130,26 +130,26 @@ class Event extends \k8s\Resource
         if (isset($data['involvedObject'])) {
             $this->involvedObject = new ObjectReference($data['involvedObject']);
         }
-        $this->kind = $data['kind'] ?? null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['lastTimestamp'])) {
             $this->lastTimestamp = new Time($data['lastTimestamp']);
         }
-        $this->message = $data['message'] ?? null;
+        $this->message = isset($data['message']) ? $data['message'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }
-        $this->reason = $data['reason'] ?? null;
+        $this->reason = isset($data['reason']) ? $data['reason'] : null;
         if (isset($data['related'])) {
             $this->related = new ObjectReference($data['related']);
         }
-        $this->reportingComponent = $data['reportingComponent'] ?? null;
-        $this->reportingInstance = $data['reportingInstance'] ?? null;
+        $this->reportingComponent = isset($data['reportingComponent']) ? $data['reportingComponent'] : null;
+        $this->reportingInstance = isset($data['reportingInstance']) ? $data['reportingInstance'] : null;
         if (isset($data['series'])) {
             $this->series = new EventSeries($data['series']);
         }
         if (isset($data['source'])) {
             $this->source = new EventSource($data['source']);
         }
-        $this->type = $data['type'] ?? null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

@@ -34,7 +34,4 @@ namespace k8s\apimachinery\pkg\runtime;
  */
 class RawExtension extends \k8s\Resource
 {
-    public function __construct($data)
-    {
-    }
 }

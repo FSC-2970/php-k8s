@@ -38,8 +38,8 @@ class VolumeAttachmentStatus extends \k8s\Resource
         if (isset($data['attachError'])) {
             $this->attachError = new VolumeError($data['attachError']);
         }
-        $this->attached = $data['attached'] ?? null;
-        $this->attachmentMetadata = $data['attachmentMetadata'] ?? null;
+        $this->attached = isset($data['attached']) ? $data['attached'] : null;
+        $this->attachmentMetadata = isset($data['attachmentMetadata']) ? $data['attachmentMetadata'] : null;
         if (isset($data['detachError'])) {
             $this->detachError = new VolumeError($data['detachError']);
         }

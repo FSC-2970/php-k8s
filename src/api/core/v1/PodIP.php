@@ -16,6 +16,6 @@ class PodIP extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->ip = $data['ip'] ?? null;
+        $this->ip = isset($data['ip']) ? $data['ip'] : null;
     }
 }

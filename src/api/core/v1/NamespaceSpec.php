@@ -15,6 +15,6 @@ class NamespaceSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->finalizers = $data['finalizers'] ?? [];
+        $this->finalizers = isset($data['finalizers']) ? $data['finalizers'] : [];
     }
 }

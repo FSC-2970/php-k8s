@@ -49,17 +49,17 @@ class EndpointSlice extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->addressType = $data['addressType'] ?? null;
-        $this->apiVersion = $data['apiVersion'] ?? null;
+        $this->addressType = isset($data['addressType']) ? $data['addressType'] : null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->endpoints = array_map(function ($a) {
             return new Endpoint($a);
-        }, $data['endpoints'] ?? []);
-        $this->kind = $data['kind'] ?? null;
+        }, isset($data['endpoints']) ? $data['endpoints'] : []);
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }
         $this->ports = array_map(function ($a) {
             return new EndpointPort($a);
-        }, $data['ports'] ?? []);
+        }, isset($data['ports']) ? $data['ports'] : []);
     }
 }

@@ -26,6 +26,6 @@ class WeightedPodAffinityTerm extends \k8s\Resource
         if (isset($data['podAffinityTerm'])) {
             $this->podAffinityTerm = new PodAffinityTerm($data['podAffinityTerm']);
         }
-        $this->weight = $data['weight'] ?? null;
+        $this->weight = isset($data['weight']) ? $data['weight'] : null;
     }
 }

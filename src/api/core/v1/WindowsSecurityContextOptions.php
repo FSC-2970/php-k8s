@@ -33,9 +33,9 @@ class WindowsSecurityContextOptions extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->gmsaCredentialSpec = $data['gmsaCredentialSpec'] ?? null;
-        $this->gmsaCredentialSpecName = $data['gmsaCredentialSpecName'] ?? null;
-        $this->hostProcess = $data['hostProcess'] ?? null;
-        $this->runAsUserName = $data['runAsUserName'] ?? null;
+        $this->gmsaCredentialSpec = isset($data['gmsaCredentialSpec']) ? $data['gmsaCredentialSpec'] : null;
+        $this->gmsaCredentialSpecName = isset($data['gmsaCredentialSpecName']) ? $data['gmsaCredentialSpecName'] : null;
+        $this->hostProcess = isset($data['hostProcess']) ? $data['hostProcess'] : null;
+        $this->runAsUserName = isset($data['runAsUserName']) ? $data['runAsUserName'] : null;
     }
 }

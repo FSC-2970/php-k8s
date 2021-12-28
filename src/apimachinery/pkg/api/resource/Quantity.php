@@ -37,7 +37,4 @@ namespace k8s\apimachinery\pkg\api\resource;
  */
 class Quantity extends \k8s\Resource
 {
-    public function __construct($data)
-    {
-    }
 }

@@ -33,7 +33,7 @@ class EnvFromSource extends \k8s\Resource
         if (isset($data['configMapRef'])) {
             $this->configMapRef = new ConfigMapEnvSource($data['configMapRef']);
         }
-        $this->prefix = $data['prefix'] ?? null;
+        $this->prefix = isset($data['prefix']) ? $data['prefix'] : null;
         if (isset($data['secretRef'])) {
             $this->secretRef = new SecretEnvSource($data['secretRef']);
         }

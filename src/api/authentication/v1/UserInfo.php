@@ -33,9 +33,9 @@ class UserInfo extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->extra = $data['extra'] ?? null;
-        $this->groups = $data['groups'] ?? [];
-        $this->uid = $data['uid'] ?? null;
-        $this->username = $data['username'] ?? null;
+        $this->extra = isset($data['extra']) ? $data['extra'] : null;
+        $this->groups = isset($data['groups']) ? $data['groups'] : [];
+        $this->uid = isset($data['uid']) ? $data['uid'] : null;
+        $this->username = isset($data['username']) ? $data['username'] : null;
     }
 }

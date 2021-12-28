@@ -15,6 +15,6 @@ class Overhead extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->podFixed = $data['podFixed'] ?? null;
+        $this->podFixed = isset($data['podFixed']) ? $data['podFixed'] : null;
     }
 }

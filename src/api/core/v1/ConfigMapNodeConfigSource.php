@@ -39,10 +39,10 @@ class ConfigMapNodeConfigSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->kubeletConfigKey = $data['kubeletConfigKey'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->namespace = $data['namespace'] ?? null;
-        $this->resourceVersion = $data['resourceVersion'] ?? null;
-        $this->uid = $data['uid'] ?? null;
+        $this->kubeletConfigKey = isset($data['kubeletConfigKey']) ? $data['kubeletConfigKey'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->namespace = isset($data['namespace']) ? $data['namespace'] : null;
+        $this->resourceVersion = isset($data['resourceVersion']) ? $data['resourceVersion'] : null;
+        $this->uid = isset($data['uid']) ? $data['uid'] : null;
     }
 }

@@ -98,26 +98,26 @@ class PodStatus extends \k8s\Resource
     {
         $this->conditions = array_map(function ($a) {
             return new PodCondition($a);
-        }, $data['conditions'] ?? []);
+        }, isset($data['conditions']) ? $data['conditions'] : []);
         $this->containerStatuses = array_map(function ($a) {
             return new ContainerStatus($a);
-        }, $data['containerStatuses'] ?? []);
+        }, isset($data['containerStatuses']) ? $data['containerStatuses'] : []);
         $this->ephemeralContainerStatuses = array_map(function ($a) {
             return new ContainerStatus($a);
-        }, $data['ephemeralContainerStatuses'] ?? []);
-        $this->hostIP = $data['hostIP'] ?? null;
+        }, isset($data['ephemeralContainerStatuses']) ? $data['ephemeralContainerStatuses'] : []);
+        $this->hostIP = isset($data['hostIP']) ? $data['hostIP'] : null;
         $this->initContainerStatuses = array_map(function ($a) {
             return new ContainerStatus($a);
-        }, $data['initContainerStatuses'] ?? []);
-        $this->message = $data['message'] ?? null;
-        $this->nominatedNodeName = $data['nominatedNodeName'] ?? null;
-        $this->phase = $data['phase'] ?? null;
-        $this->podIP = $data['podIP'] ?? null;
+        }, isset($data['initContainerStatuses']) ? $data['initContainerStatuses'] : []);
+        $this->message = isset($data['message']) ? $data['message'] : null;
+        $this->nominatedNodeName = isset($data['nominatedNodeName']) ? $data['nominatedNodeName'] : null;
+        $this->phase = isset($data['phase']) ? $data['phase'] : null;
+        $this->podIP = isset($data['podIP']) ? $data['podIP'] : null;
         $this->podIPs = array_map(function ($a) {
             return new PodIP($a);
-        }, $data['podIPs'] ?? []);
-        $this->qosClass = $data['qosClass'] ?? null;
-        $this->reason = $data['reason'] ?? null;
+        }, isset($data['podIPs']) ? $data['podIPs'] : []);
+        $this->qosClass = isset($data['qosClass']) ? $data['qosClass'] : null;
+        $this->reason = isset($data['reason']) ? $data['reason'] : null;
         if (isset($data['startTime'])) {
             $this->startTime = new Time($data['startTime']);
         }

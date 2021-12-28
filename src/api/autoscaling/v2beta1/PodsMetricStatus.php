@@ -33,7 +33,7 @@ class PodsMetricStatus extends \k8s\Resource
         if (isset($data['currentAverageValue'])) {
             $this->currentAverageValue = new Quantity($data['currentAverageValue']);
         }
-        $this->metricName = $data['metricName'] ?? null;
+        $this->metricName = isset($data['metricName']) ? $data['metricName'] : null;
         if (isset($data['selector'])) {
             $this->selector = new LabelSelector($data['selector']);
         }

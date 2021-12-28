@@ -57,13 +57,13 @@ class NodeSpec extends \k8s\Resource
         if (isset($data['configSource'])) {
             $this->configSource = new NodeConfigSource($data['configSource']);
         }
-        $this->externalID = $data['externalID'] ?? null;
-        $this->podCIDR = $data['podCIDR'] ?? null;
-        $this->podCIDRs = $data['podCIDRs'] ?? [];
-        $this->providerID = $data['providerID'] ?? null;
+        $this->externalID = isset($data['externalID']) ? $data['externalID'] : null;
+        $this->podCIDR = isset($data['podCIDR']) ? $data['podCIDR'] : null;
+        $this->podCIDRs = isset($data['podCIDRs']) ? $data['podCIDRs'] : [];
+        $this->providerID = isset($data['providerID']) ? $data['providerID'] : null;
         $this->taints = array_map(function ($a) {
             return new Taint($a);
-        }, $data['taints'] ?? []);
-        $this->unschedulable = $data['unschedulable'] ?? null;
+        }, isset($data['taints']) ? $data['taints'] : []);
+        $this->unschedulable = isset($data['unschedulable']) ? $data['unschedulable'] : null;
     }
 }

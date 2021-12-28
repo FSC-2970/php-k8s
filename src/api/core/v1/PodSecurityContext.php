@@ -78,21 +78,21 @@ class PodSecurityContext extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->fsGroup = $data['fsGroup'] ?? null;
-        $this->fsGroupChangePolicy = $data['fsGroupChangePolicy'] ?? null;
-        $this->runAsGroup = $data['runAsGroup'] ?? null;
-        $this->runAsNonRoot = $data['runAsNonRoot'] ?? null;
-        $this->runAsUser = $data['runAsUser'] ?? null;
+        $this->fsGroup = isset($data['fsGroup']) ? $data['fsGroup'] : null;
+        $this->fsGroupChangePolicy = isset($data['fsGroupChangePolicy']) ? $data['fsGroupChangePolicy'] : null;
+        $this->runAsGroup = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
+        $this->runAsNonRoot = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
+        $this->runAsUser = isset($data['runAsUser']) ? $data['runAsUser'] : null;
         if (isset($data['seLinuxOptions'])) {
             $this->seLinuxOptions = new SELinuxOptions($data['seLinuxOptions']);
         }
         if (isset($data['seccompProfile'])) {
             $this->seccompProfile = new SeccompProfile($data['seccompProfile']);
         }
-        $this->supplementalGroups = $data['supplementalGroups'] ?? [];
+        $this->supplementalGroups = isset($data['supplementalGroups']) ? $data['supplementalGroups'] : [];
         $this->sysctls = array_map(function ($a) {
             return new Sysctl($a);
-        }, $data['sysctls'] ?? []);
+        }, isset($data['sysctls']) ? $data['sysctls'] : []);
         if (isset($data['windowsOptions'])) {
             $this->windowsOptions = new WindowsSecurityContextOptions($data['windowsOptions']);
         }

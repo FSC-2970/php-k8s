@@ -35,11 +35,11 @@ class ContainerResourceMetricStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->container = $data['container'] ?? null;
-        $this->currentAverageUtilization = $data['currentAverageUtilization'] ?? null;
+        $this->container = isset($data['container']) ? $data['container'] : null;
+        $this->currentAverageUtilization = isset($data['currentAverageUtilization']) ? $data['currentAverageUtilization'] : null;
         if (isset($data['currentAverageValue'])) {
             $this->currentAverageValue = new Quantity($data['currentAverageValue']);
         }
-        $this->name = $data['name'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
     }
 }

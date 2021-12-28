@@ -53,14 +53,14 @@ class PriorityClass extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->description = $data['description'] ?? null;
-        $this->globalDefault = $data['globalDefault'] ?? null;
-        $this->kind = $data['kind'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->description = isset($data['description']) ? $data['description'] : null;
+        $this->globalDefault = isset($data['globalDefault']) ? $data['globalDefault'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }
-        $this->preemptionPolicy = $data['preemptionPolicy'] ?? null;
-        $this->value = $data['value'] ?? null;
+        $this->preemptionPolicy = isset($data['preemptionPolicy']) ? $data['preemptionPolicy'] : null;
+        $this->value = isset($data['value']) ? $data['value'] : null;
     }
 }

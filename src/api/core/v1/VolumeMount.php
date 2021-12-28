@@ -45,11 +45,11 @@ class VolumeMount extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->mountPath = $data['mountPath'] ?? null;
-        $this->mountPropagation = $data['mountPropagation'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
-        $this->subPath = $data['subPath'] ?? null;
-        $this->subPathExpr = $data['subPathExpr'] ?? null;
+        $this->mountPath = isset($data['mountPath']) ? $data['mountPath'] : null;
+        $this->mountPropagation = isset($data['mountPropagation']) ? $data['mountPropagation'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->subPath = isset($data['subPath']) ? $data['subPath'] : null;
+        $this->subPathExpr = isset($data['subPathExpr']) ? $data['subPathExpr'] : null;
     }
 }

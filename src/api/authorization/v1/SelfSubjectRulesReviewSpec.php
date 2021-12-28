@@ -15,6 +15,6 @@ class SelfSubjectRulesReviewSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->namespace = $data['namespace'] ?? null;
+        $this->namespace = isset($data['namespace']) ? $data['namespace'] : null;
     }
 }

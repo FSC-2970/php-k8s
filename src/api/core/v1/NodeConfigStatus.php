@@ -41,7 +41,7 @@ class NodeConfigStatus extends \k8s\Resource
         if (isset($data['assigned'])) {
             $this->assigned = new NodeConfigSource($data['assigned']);
         }
-        $this->error = $data['error'] ?? null;
+        $this->error = isset($data['error']) ? $data['error'] : null;
         if (isset($data['lastKnownGood'])) {
             $this->lastKnownGood = new NodeConfigSource($data['lastKnownGood']);
         }

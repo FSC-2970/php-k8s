@@ -29,10 +29,10 @@ class LoadBalancerIngress extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->hostname = $data['hostname'] ?? null;
-        $this->ip = $data['ip'] ?? null;
+        $this->hostname = isset($data['hostname']) ? $data['hostname'] : null;
+        $this->ip = isset($data['ip']) ? $data['ip'] : null;
         $this->ports = array_map(function ($a) {
             return new PortStatus($a);
-        }, $data['ports'] ?? []);
+        }, isset($data['ports']) ? $data['ports'] : []);
     }
 }

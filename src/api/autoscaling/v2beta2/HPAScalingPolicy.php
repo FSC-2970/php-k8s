@@ -27,8 +27,8 @@ class HPAScalingPolicy extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->periodSeconds = $data['periodSeconds'] ?? null;
-        $this->type = $data['type'] ?? null;
-        $this->value = $data['value'] ?? null;
+        $this->periodSeconds = isset($data['periodSeconds']) ? $data['periodSeconds'] : null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
+        $this->value = isset($data['value']) ? $data['value'] : null;
     }
 }

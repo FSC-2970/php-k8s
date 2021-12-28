@@ -19,6 +19,6 @@ class HTTPIngressRuleValue extends \k8s\Resource
     {
         $this->paths = array_map(function ($a) {
             return new HTTPIngressPath($a);
-        }, $data['paths'] ?? []);
+        }, isset($data['paths']) ? $data['paths'] : []);
     }
 }

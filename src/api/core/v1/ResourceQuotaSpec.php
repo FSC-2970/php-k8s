@@ -29,10 +29,10 @@ class ResourceQuotaSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->hard = $data['hard'] ?? null;
+        $this->hard = isset($data['hard']) ? $data['hard'] : null;
         if (isset($data['scopeSelector'])) {
             $this->scopeSelector = new ScopeSelector($data['scopeSelector']);
         }
-        $this->scopes = $data['scopes'] ?? [];
+        $this->scopes = isset($data['scopes']) ? $data['scopes'] : [];
     }
 }

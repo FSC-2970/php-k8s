@@ -45,11 +45,11 @@ class AzureDiskVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->cachingMode = $data['cachingMode'] ?? null;
-        $this->diskName = $data['diskName'] ?? null;
-        $this->diskURI = $data['diskURI'] ?? null;
-        $this->fsType = $data['fsType'] ?? null;
-        $this->kind = $data['kind'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
+        $this->cachingMode = isset($data['cachingMode']) ? $data['cachingMode'] : null;
+        $this->diskName = isset($data['diskName']) ? $data['diskName'] : null;
+        $this->diskURI = isset($data['diskURI']) ? $data['diskURI'] : null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
     }
 }

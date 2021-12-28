@@ -35,11 +35,11 @@ class CinderVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->fsType = $data['fsType'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
         if (isset($data['secretRef'])) {
             $this->secretRef = new LocalObjectReference($data['secretRef']);
         }
-        $this->volumeID = $data['volumeID'] ?? null;
+        $this->volumeID = isset($data['volumeID']) ? $data['volumeID'] : null;
     }
 }

@@ -21,7 +21,7 @@ class TokenReviewSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->audiences = $data['audiences'] ?? [];
-        $this->token = $data['token'] ?? null;
+        $this->audiences = isset($data['audiences']) ? $data['audiences'] : [];
+        $this->token = isset($data['token']) ? $data['token'] : null;
     }
 }

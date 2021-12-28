@@ -33,9 +33,9 @@ class ComponentCondition extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->error = $data['error'] ?? null;
-        $this->message = $data['message'] ?? null;
-        $this->status = $data['status'] ?? null;
-        $this->type = $data['type'] ?? null;
+        $this->error = isset($data['error']) ? $data['error'] : null;
+        $this->message = isset($data['message']) ? $data['message'] : null;
+        $this->status = isset($data['status']) ? $data['status'] : null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

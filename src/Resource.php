@@ -7,15 +7,15 @@ namespace k8s;
  */
 class Resource
 {
-    // protected $origin;
+    public $origin;
 
-    // public function __construct($data)
-    // {
-    //     $this->origin = is_array($data) || \is_object($data) ? \json_encode($data) : $data;
-    // }
+    public function __construct($data)
+    {
+        $this->origin = $data;
+    }
 
-    // public function __toString()
-    // {
-    //     return (string)$this->origin;
-    // }
+    public function __toString()
+    {
+        return (string)(is_array($this->origin) || \is_object($this->origin) ? \json_encode($this->origin) : $this->origin);
+    }
 }

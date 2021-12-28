@@ -35,11 +35,11 @@ class APIVersions extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->kind = $data['kind'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         $this->serverAddressByClientCIDRs = array_map(function ($a) {
             return new ServerAddressByClientCIDR($a);
-        }, $data['serverAddressByClientCIDRs'] ?? []);
-        $this->versions = $data['versions'] ?? [];
+        }, isset($data['serverAddressByClientCIDRs']) ? $data['serverAddressByClientCIDRs'] : []);
+        $this->versions = isset($data['versions']) ? $data['versions'] : [];
     }
 }

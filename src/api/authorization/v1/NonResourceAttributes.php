@@ -21,7 +21,7 @@ class NonResourceAttributes extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->path = $data['path'] ?? null;
-        $this->verb = $data['verb'] ?? null;
+        $this->path = isset($data['path']) ? $data['path'] : null;
+        $this->verb = isset($data['verb']) ? $data['verb'] : null;
     }
 }

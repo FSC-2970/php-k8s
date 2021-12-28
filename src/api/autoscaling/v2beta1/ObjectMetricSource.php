@@ -46,7 +46,7 @@ class ObjectMetricSource extends \k8s\Resource
         if (isset($data['averageValue'])) {
             $this->averageValue = new Quantity($data['averageValue']);
         }
-        $this->metricName = $data['metricName'] ?? null;
+        $this->metricName = isset($data['metricName']) ? $data['metricName'] : null;
         if (isset($data['selector'])) {
             $this->selector = new LabelSelector($data['selector']);
         }

@@ -35,11 +35,11 @@ class HorizontalPodAutoscalerSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->maxReplicas = $data['maxReplicas'] ?? null;
-        $this->minReplicas = $data['minReplicas'] ?? null;
+        $this->maxReplicas = isset($data['maxReplicas']) ? $data['maxReplicas'] : null;
+        $this->minReplicas = isset($data['minReplicas']) ? $data['minReplicas'] : null;
         if (isset($data['scaleTargetRef'])) {
             $this->scaleTargetRef = new CrossVersionObjectReference($data['scaleTargetRef']);
         }
-        $this->targetCPUUtilizationPercentage = $data['targetCPUUtilizationPercentage'] ?? null;
+        $this->targetCPUUtilizationPercentage = isset($data['targetCPUUtilizationPercentage']) ? $data['targetCPUUtilizationPercentage'] : null;
     }
 }

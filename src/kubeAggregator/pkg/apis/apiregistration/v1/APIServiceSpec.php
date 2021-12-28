@@ -53,14 +53,14 @@ class APIServiceSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->caBundle = $data['caBundle'] ?? null;
-        $this->group = $data['group'] ?? null;
-        $this->groupPriorityMinimum = $data['groupPriorityMinimum'] ?? null;
-        $this->insecureSkipTLSVerify = $data['insecureSkipTLSVerify'] ?? null;
+        $this->caBundle = isset($data['caBundle']) ? $data['caBundle'] : null;
+        $this->group = isset($data['group']) ? $data['group'] : null;
+        $this->groupPriorityMinimum = isset($data['groupPriorityMinimum']) ? $data['groupPriorityMinimum'] : null;
+        $this->insecureSkipTLSVerify = isset($data['insecureSkipTLSVerify']) ? $data['insecureSkipTLSVerify'] : null;
         if (isset($data['service'])) {
             $this->service = new ServiceReference($data['service']);
         }
-        $this->version = $data['version'] ?? null;
-        $this->versionPriority = $data['versionPriority'] ?? null;
+        $this->version = isset($data['version']) ? $data['version'] : null;
+        $this->versionPriority = isset($data['versionPriority']) ? $data['versionPriority'] : null;
     }
 }

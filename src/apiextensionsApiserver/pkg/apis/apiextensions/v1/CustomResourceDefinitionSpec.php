@@ -52,14 +52,14 @@ class CustomResourceDefinitionSpec extends \k8s\Resource
         if (isset($data['conversion'])) {
             $this->conversion = new CustomResourceConversion($data['conversion']);
         }
-        $this->group = $data['group'] ?? null;
+        $this->group = isset($data['group']) ? $data['group'] : null;
         if (isset($data['names'])) {
             $this->names = new CustomResourceDefinitionNames($data['names']);
         }
-        $this->preserveUnknownFields = $data['preserveUnknownFields'] ?? null;
-        $this->scope = $data['scope'] ?? null;
+        $this->preserveUnknownFields = isset($data['preserveUnknownFields']) ? $data['preserveUnknownFields'] : null;
+        $this->scope = isset($data['scope']) ? $data['scope'] : null;
         $this->versions = array_map(function ($a) {
             return new CustomResourceDefinitionVersion($a);
-        }, $data['versions'] ?? []);
+        }, isset($data['versions']) ? $data['versions'] : []);
     }
 }

@@ -29,10 +29,10 @@ class NetworkPolicyPort extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->endPort = $data['endPort'] ?? null;
+        $this->endPort = isset($data['endPort']) ? $data['endPort'] : null;
         if (isset($data['port'])) {
             $this->port = new IntOrString($data['port']);
         }
-        $this->protocol = $data['protocol'] ?? null;
+        $this->protocol = isset($data['protocol']) ? $data['protocol'] : null;
     }
 }

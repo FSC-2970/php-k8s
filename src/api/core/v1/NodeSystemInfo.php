@@ -69,15 +69,15 @@ class NodeSystemInfo extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->architecture = $data['architecture'] ?? null;
-        $this->bootID = $data['bootID'] ?? null;
-        $this->containerRuntimeVersion = $data['containerRuntimeVersion'] ?? null;
-        $this->kernelVersion = $data['kernelVersion'] ?? null;
-        $this->kubeProxyVersion = $data['kubeProxyVersion'] ?? null;
-        $this->kubeletVersion = $data['kubeletVersion'] ?? null;
-        $this->machineID = $data['machineID'] ?? null;
-        $this->operatingSystem = $data['operatingSystem'] ?? null;
-        $this->osImage = $data['osImage'] ?? null;
-        $this->systemUUID = $data['systemUUID'] ?? null;
+        $this->architecture = isset($data['architecture']) ? $data['architecture'] : null;
+        $this->bootID = isset($data['bootID']) ? $data['bootID'] : null;
+        $this->containerRuntimeVersion = isset($data['containerRuntimeVersion']) ? $data['containerRuntimeVersion'] : null;
+        $this->kernelVersion = isset($data['kernelVersion']) ? $data['kernelVersion'] : null;
+        $this->kubeProxyVersion = isset($data['kubeProxyVersion']) ? $data['kubeProxyVersion'] : null;
+        $this->kubeletVersion = isset($data['kubeletVersion']) ? $data['kubeletVersion'] : null;
+        $this->machineID = isset($data['machineID']) ? $data['machineID'] : null;
+        $this->operatingSystem = isset($data['operatingSystem']) ? $data['operatingSystem'] : null;
+        $this->osImage = isset($data['osImage']) ? $data['osImage'] : null;
+        $this->systemUUID = isset($data['systemUUID']) ? $data['systemUUID'] : null;
     }
 }

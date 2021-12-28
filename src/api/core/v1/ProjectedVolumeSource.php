@@ -23,9 +23,9 @@ class ProjectedVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->defaultMode = $data['defaultMode'] ?? null;
+        $this->defaultMode = isset($data['defaultMode']) ? $data['defaultMode'] : null;
         $this->sources = array_map(function ($a) {
             return new VolumeProjection($a);
-        }, $data['sources'] ?? []);
+        }, isset($data['sources']) ? $data['sources'] : []);
     }
 }

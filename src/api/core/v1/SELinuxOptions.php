@@ -33,9 +33,9 @@ class SELinuxOptions extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->level = $data['level'] ?? null;
-        $this->role = $data['role'] ?? null;
-        $this->type = $data['type'] ?? null;
-        $this->user = $data['user'] ?? null;
+        $this->level = isset($data['level']) ? $data['level'] : null;
+        $this->role = isset($data['role']) ? $data['role'] : null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
+        $this->user = isset($data['user']) ? $data['user'] : null;
     }
 }

@@ -51,15 +51,15 @@ class HorizontalPodAutoscalerStatus extends \k8s\Resource
     {
         $this->conditions = array_map(function ($a) {
             return new HorizontalPodAutoscalerCondition($a);
-        }, $data['conditions'] ?? []);
+        }, isset($data['conditions']) ? $data['conditions'] : []);
         $this->currentMetrics = array_map(function ($a) {
             return new MetricStatus($a);
-        }, $data['currentMetrics'] ?? []);
-        $this->currentReplicas = $data['currentReplicas'] ?? null;
-        $this->desiredReplicas = $data['desiredReplicas'] ?? null;
+        }, isset($data['currentMetrics']) ? $data['currentMetrics'] : []);
+        $this->currentReplicas = isset($data['currentReplicas']) ? $data['currentReplicas'] : null;
+        $this->desiredReplicas = isset($data['desiredReplicas']) ? $data['desiredReplicas'] : null;
         if (isset($data['lastScaleTime'])) {
             $this->lastScaleTime = new Time($data['lastScaleTime']);
         }
-        $this->observedGeneration = $data['observedGeneration'] ?? null;
+        $this->observedGeneration = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
     }
 }

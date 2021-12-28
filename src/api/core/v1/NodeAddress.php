@@ -21,7 +21,7 @@ class NodeAddress extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->address = $data['address'] ?? null;
-        $this->type = $data['type'] ?? null;
+        $this->address = isset($data['address']) ? $data['address'] : null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

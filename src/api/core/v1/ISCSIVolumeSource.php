@@ -77,18 +77,18 @@ class ISCSIVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->chapAuthDiscovery = $data['chapAuthDiscovery'] ?? null;
-        $this->chapAuthSession = $data['chapAuthSession'] ?? null;
-        $this->fsType = $data['fsType'] ?? null;
-        $this->initiatorName = $data['initiatorName'] ?? null;
-        $this->iqn = $data['iqn'] ?? null;
-        $this->iscsiInterface = $data['iscsiInterface'] ?? null;
-        $this->lun = $data['lun'] ?? null;
-        $this->portals = $data['portals'] ?? [];
-        $this->readOnly = $data['readOnly'] ?? null;
+        $this->chapAuthDiscovery = isset($data['chapAuthDiscovery']) ? $data['chapAuthDiscovery'] : null;
+        $this->chapAuthSession = isset($data['chapAuthSession']) ? $data['chapAuthSession'] : null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->initiatorName = isset($data['initiatorName']) ? $data['initiatorName'] : null;
+        $this->iqn = isset($data['iqn']) ? $data['iqn'] : null;
+        $this->iscsiInterface = isset($data['iscsiInterface']) ? $data['iscsiInterface'] : null;
+        $this->lun = isset($data['lun']) ? $data['lun'] : null;
+        $this->portals = isset($data['portals']) ? $data['portals'] : [];
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
         if (isset($data['secretRef'])) {
             $this->secretRef = new LocalObjectReference($data['secretRef']);
         }
-        $this->targetPortal = $data['targetPortal'] ?? null;
+        $this->targetPortal = isset($data['targetPortal']) ? $data['targetPortal'] : null;
     }
 }

@@ -31,8 +31,8 @@ class StatusCause extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->field = $data['field'] ?? null;
-        $this->message = $data['message'] ?? null;
-        $this->reason = $data['reason'] ?? null;
+        $this->field = isset($data['field']) ? $data['field'] : null;
+        $this->message = isset($data['message']) ? $data['message'] : null;
+        $this->reason = isset($data['reason']) ? $data['reason'] : null;
     }
 }

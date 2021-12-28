@@ -24,7 +24,7 @@ class CustomResourceConversion extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->strategy = $data['strategy'] ?? null;
+        $this->strategy = isset($data['strategy']) ? $data['strategy'] : null;
         if (isset($data['webhook'])) {
             $this->webhook = new WebhookConversion($data['webhook']);
         }

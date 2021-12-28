@@ -19,6 +19,6 @@ class DownwardAPIProjection extends \k8s\Resource
     {
         $this->items = array_map(function ($a) {
             return new DownwardAPIVolumeFile($a);
-        }, $data['items'] ?? []);
+        }, isset($data['items']) ? $data['items'] : []);
     }
 }

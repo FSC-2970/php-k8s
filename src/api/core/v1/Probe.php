@@ -70,17 +70,17 @@ class Probe extends \k8s\Resource
         if (isset($data['exec'])) {
             $this->exec = new ExecAction($data['exec']);
         }
-        $this->failureThreshold = $data['failureThreshold'] ?? null;
+        $this->failureThreshold = isset($data['failureThreshold']) ? $data['failureThreshold'] : null;
         if (isset($data['httpGet'])) {
             $this->httpGet = new HTTPGetAction($data['httpGet']);
         }
-        $this->initialDelaySeconds = $data['initialDelaySeconds'] ?? null;
-        $this->periodSeconds = $data['periodSeconds'] ?? null;
-        $this->successThreshold = $data['successThreshold'] ?? null;
+        $this->initialDelaySeconds = isset($data['initialDelaySeconds']) ? $data['initialDelaySeconds'] : null;
+        $this->periodSeconds = isset($data['periodSeconds']) ? $data['periodSeconds'] : null;
+        $this->successThreshold = isset($data['successThreshold']) ? $data['successThreshold'] : null;
         if (isset($data['tcpSocket'])) {
             $this->tcpSocket = new TCPSocketAction($data['tcpSocket']);
         }
-        $this->terminationGracePeriodSeconds = $data['terminationGracePeriodSeconds'] ?? null;
-        $this->timeoutSeconds = $data['timeoutSeconds'] ?? null;
+        $this->terminationGracePeriodSeconds = isset($data['terminationGracePeriodSeconds']) ? $data['terminationGracePeriodSeconds'] : null;
+        $this->timeoutSeconds = isset($data['timeoutSeconds']) ? $data['timeoutSeconds'] : null;
     }
 }

@@ -68,14 +68,14 @@ class StatefulSetSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->minReadySeconds = $data['minReadySeconds'] ?? null;
-        $this->podManagementPolicy = $data['podManagementPolicy'] ?? null;
-        $this->replicas = $data['replicas'] ?? null;
-        $this->revisionHistoryLimit = $data['revisionHistoryLimit'] ?? null;
+        $this->minReadySeconds = isset($data['minReadySeconds']) ? $data['minReadySeconds'] : null;
+        $this->podManagementPolicy = isset($data['podManagementPolicy']) ? $data['podManagementPolicy'] : null;
+        $this->replicas = isset($data['replicas']) ? $data['replicas'] : null;
+        $this->revisionHistoryLimit = isset($data['revisionHistoryLimit']) ? $data['revisionHistoryLimit'] : null;
         if (isset($data['selector'])) {
             $this->selector = new LabelSelector($data['selector']);
         }
-        $this->serviceName = $data['serviceName'] ?? null;
+        $this->serviceName = isset($data['serviceName']) ? $data['serviceName'] : null;
         if (isset($data['template'])) {
             $this->template = new PodTemplateSpec($data['template']);
         }
@@ -84,6 +84,6 @@ class StatefulSetSpec extends \k8s\Resource
         }
         $this->volumeClaimTemplates = array_map(function ($a) {
             return new PersistentVolumeClaim($a);
-        }, $data['volumeClaimTemplates'] ?? []);
+        }, isset($data['volumeClaimTemplates']) ? $data['volumeClaimTemplates'] : []);
     }
 }

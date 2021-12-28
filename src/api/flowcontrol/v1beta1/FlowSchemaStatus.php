@@ -19,6 +19,6 @@ class FlowSchemaStatus extends \k8s\Resource
     {
         $this->conditions = array_map(function ($a) {
             return new FlowSchemaCondition($a);
-        }, $data['conditions'] ?? []);
+        }, isset($data['conditions']) ? $data['conditions'] : []);
     }
 }

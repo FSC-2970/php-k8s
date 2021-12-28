@@ -23,7 +23,7 @@ class SeccompProfile extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->localhostProfile = $data['localhostProfile'] ?? null;
-        $this->type = $data['type'] ?? null;
+        $this->localhostProfile = isset($data['localhostProfile']) ? $data['localhostProfile'] : null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

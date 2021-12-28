@@ -26,6 +26,6 @@ class ResourceMetricStatus extends \k8s\Resource
         if (isset($data['current'])) {
             $this->current = new MetricValueStatus($data['current']);
         }
-        $this->name = $data['name'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
     }
 }

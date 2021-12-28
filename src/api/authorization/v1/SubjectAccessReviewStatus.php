@@ -33,9 +33,9 @@ class SubjectAccessReviewStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->allowed = $data['allowed'] ?? null;
-        $this->denied = $data['denied'] ?? null;
-        $this->evaluationError = $data['evaluationError'] ?? null;
-        $this->reason = $data['reason'] ?? null;
+        $this->allowed = isset($data['allowed']) ? $data['allowed'] : null;
+        $this->denied = isset($data['denied']) ? $data['denied'] : null;
+        $this->evaluationError = isset($data['evaluationError']) ? $data['evaluationError'] : null;
+        $this->reason = isset($data['reason']) ? $data['reason'] : null;
     }
 }

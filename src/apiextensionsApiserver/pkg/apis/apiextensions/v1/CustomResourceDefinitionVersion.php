@@ -63,15 +63,15 @@ class CustomResourceDefinitionVersion extends \k8s\Resource
     {
         $this->additionalPrinterColumns = array_map(function ($a) {
             return new CustomResourceColumnDefinition($a);
-        }, $data['additionalPrinterColumns'] ?? []);
-        $this->deprecated = $data['deprecated'] ?? null;
-        $this->deprecationWarning = $data['deprecationWarning'] ?? null;
-        $this->name = $data['name'] ?? null;
+        }, isset($data['additionalPrinterColumns']) ? $data['additionalPrinterColumns'] : []);
+        $this->deprecated = isset($data['deprecated']) ? $data['deprecated'] : null;
+        $this->deprecationWarning = isset($data['deprecationWarning']) ? $data['deprecationWarning'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
         if (isset($data['schema'])) {
             $this->schema = new CustomResourceValidation($data['schema']);
         }
-        $this->served = $data['served'] ?? null;
-        $this->storage = $data['storage'] ?? null;
+        $this->served = isset($data['served']) ? $data['served'] : null;
+        $this->storage = isset($data['storage']) ? $data['storage'] : null;
         if (isset($data['subresources'])) {
             $this->subresources = new CustomResourceSubresources($data['subresources']);
         }

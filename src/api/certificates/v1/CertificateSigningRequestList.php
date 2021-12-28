@@ -35,11 +35,11 @@ class CertificateSigningRequestList extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->items = array_map(function ($a) {
             return new CertificateSigningRequest($a);
-        }, $data['items'] ?? []);
-        $this->kind = $data['kind'] ?? null;
+        }, isset($data['items']) ? $data['items'] : []);
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ListMeta($data['metadata']);
         }

@@ -42,7 +42,7 @@ class HTTPIngressPath extends \k8s\Resource
         if (isset($data['backend'])) {
             $this->backend = new IngressBackend($data['backend']);
         }
-        $this->path = $data['path'] ?? null;
-        $this->pathType = $data['pathType'] ?? null;
+        $this->path = isset($data['path']) ? $data['path'] : null;
+        $this->pathType = isset($data['pathType']) ? $data['pathType'] : null;
     }
 }

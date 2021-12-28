@@ -39,10 +39,10 @@ class FCVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->fsType = $data['fsType'] ?? null;
-        $this->lun = $data['lun'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
-        $this->targetWWNs = $data['targetWWNs'] ?? [];
-        $this->wwids = $data['wwids'] ?? [];
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->lun = isset($data['lun']) ? $data['lun'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->targetWWNs = isset($data['targetWWNs']) ? $data['targetWWNs'] : [];
+        $this->wwids = isset($data['wwids']) ? $data['wwids'] : [];
     }
 }

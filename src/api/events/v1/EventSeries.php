@@ -23,7 +23,7 @@ class EventSeries extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->count = $data['count'] ?? null;
+        $this->count = isset($data['count']) ? $data['count'] : null;
         if (isset($data['lastObservedTime'])) {
             $this->lastObservedTime = new MicroTime($data['lastObservedTime']);
         }

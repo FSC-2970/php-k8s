@@ -29,7 +29,7 @@ class MetricValueStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->averageUtilization = $data['averageUtilization'] ?? null;
+        $this->averageUtilization = isset($data['averageUtilization']) ? $data['averageUtilization'] : null;
         if (isset($data['averageValue'])) {
             $this->averageValue = new Quantity($data['averageValue']);
         }

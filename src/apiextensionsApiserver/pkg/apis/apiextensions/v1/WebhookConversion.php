@@ -26,6 +26,6 @@ class WebhookConversion extends \k8s\Resource
         if (isset($data['clientConfig'])) {
             $this->clientConfig = new WebhookClientConfig($data['clientConfig']);
         }
-        $this->conversionReviewVersions = $data['conversionReviewVersions'] ?? [];
+        $this->conversionReviewVersions = isset($data['conversionReviewVersions']) ? $data['conversionReviewVersions'] : [];
     }
 }

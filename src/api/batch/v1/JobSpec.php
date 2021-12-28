@@ -80,19 +80,19 @@ class JobSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->activeDeadlineSeconds = $data['activeDeadlineSeconds'] ?? null;
-        $this->backoffLimit = $data['backoffLimit'] ?? null;
-        $this->completionMode = $data['completionMode'] ?? null;
-        $this->completions = $data['completions'] ?? null;
-        $this->manualSelector = $data['manualSelector'] ?? null;
-        $this->parallelism = $data['parallelism'] ?? null;
+        $this->activeDeadlineSeconds = isset($data['activeDeadlineSeconds']) ? $data['activeDeadlineSeconds'] : null;
+        $this->backoffLimit = isset($data['backoffLimit']) ? $data['backoffLimit'] : null;
+        $this->completionMode = isset($data['completionMode']) ? $data['completionMode'] : null;
+        $this->completions = isset($data['completions']) ? $data['completions'] : null;
+        $this->manualSelector = isset($data['manualSelector']) ? $data['manualSelector'] : null;
+        $this->parallelism = isset($data['parallelism']) ? $data['parallelism'] : null;
         if (isset($data['selector'])) {
             $this->selector = new LabelSelector($data['selector']);
         }
-        $this->suspend = $data['suspend'] ?? null;
+        $this->suspend = isset($data['suspend']) ? $data['suspend'] : null;
         if (isset($data['template'])) {
             $this->template = new PodTemplateSpec($data['template']);
         }
-        $this->ttlSecondsAfterFinished = $data['ttlSecondsAfterFinished'] ?? null;
+        $this->ttlSecondsAfterFinished = isset($data['ttlSecondsAfterFinished']) ? $data['ttlSecondsAfterFinished'] : null;
     }
 }

@@ -54,14 +54,14 @@ class Info extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->buildDate = $data['buildDate'] ?? null;
-        $this->compiler = $data['compiler'] ?? null;
-        $this->gitCommit = $data['gitCommit'] ?? null;
-        $this->gitTreeState = $data['gitTreeState'] ?? null;
-        $this->gitVersion = $data['gitVersion'] ?? null;
-        $this->goVersion = $data['goVersion'] ?? null;
-        $this->major = $data['major'] ?? null;
-        $this->minor = $data['minor'] ?? null;
-        $this->platform = $data['platform'] ?? null;
+        $this->buildDate = isset($data['buildDate']) ? $data['buildDate'] : null;
+        $this->compiler = isset($data['compiler']) ? $data['compiler'] : null;
+        $this->gitCommit = isset($data['gitCommit']) ? $data['gitCommit'] : null;
+        $this->gitTreeState = isset($data['gitTreeState']) ? $data['gitTreeState'] : null;
+        $this->gitVersion = isset($data['gitVersion']) ? $data['gitVersion'] : null;
+        $this->goVersion = isset($data['goVersion']) ? $data['goVersion'] : null;
+        $this->major = isset($data['major']) ? $data['major'] : null;
+        $this->minor = isset($data['minor']) ? $data['minor'] : null;
+        $this->platform = isset($data['platform']) ? $data['platform'] : null;
     }
 }

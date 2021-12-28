@@ -39,12 +39,12 @@ class EndpointSubset extends \k8s\Resource
     {
         $this->addresses = array_map(function ($a) {
             return new EndpointAddress($a);
-        }, $data['addresses'] ?? []);
+        }, isset($data['addresses']) ? $data['addresses'] : []);
         $this->notReadyAddresses = array_map(function ($a) {
             return new EndpointAddress($a);
-        }, $data['notReadyAddresses'] ?? []);
+        }, isset($data['notReadyAddresses']) ? $data['notReadyAddresses'] : []);
         $this->ports = array_map(function ($a) {
             return new EndpointPort($a);
-        }, $data['ports'] ?? []);
+        }, isset($data['ports']) ? $data['ports'] : []);
     }
 }

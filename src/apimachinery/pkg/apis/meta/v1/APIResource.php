@@ -69,15 +69,15 @@ class APIResource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->categories = $data['categories'] ?? [];
-        $this->group = $data['group'] ?? null;
-        $this->kind = $data['kind'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->namespaced = $data['namespaced'] ?? null;
-        $this->shortNames = $data['shortNames'] ?? [];
-        $this->singularName = $data['singularName'] ?? null;
-        $this->storageVersionHash = $data['storageVersionHash'] ?? null;
-        $this->verbs = $data['verbs'] ?? [];
-        $this->version = $data['version'] ?? null;
+        $this->categories = isset($data['categories']) ? $data['categories'] : [];
+        $this->group = isset($data['group']) ? $data['group'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->namespaced = isset($data['namespaced']) ? $data['namespaced'] : null;
+        $this->shortNames = isset($data['shortNames']) ? $data['shortNames'] : [];
+        $this->singularName = isset($data['singularName']) ? $data['singularName'] : null;
+        $this->storageVersionHash = isset($data['storageVersionHash']) ? $data['storageVersionHash'] : null;
+        $this->verbs = isset($data['verbs']) ? $data['verbs'] : [];
+        $this->version = isset($data['version']) ? $data['version'] : null;
     }
 }

@@ -53,14 +53,14 @@ class CronJobSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->concurrencyPolicy = $data['concurrencyPolicy'] ?? null;
-        $this->failedJobsHistoryLimit = $data['failedJobsHistoryLimit'] ?? null;
+        $this->concurrencyPolicy = isset($data['concurrencyPolicy']) ? $data['concurrencyPolicy'] : null;
+        $this->failedJobsHistoryLimit = isset($data['failedJobsHistoryLimit']) ? $data['failedJobsHistoryLimit'] : null;
         if (isset($data['jobTemplate'])) {
             $this->jobTemplate = new JobTemplateSpec($data['jobTemplate']);
         }
-        $this->schedule = $data['schedule'] ?? null;
-        $this->startingDeadlineSeconds = $data['startingDeadlineSeconds'] ?? null;
-        $this->successfulJobsHistoryLimit = $data['successfulJobsHistoryLimit'] ?? null;
-        $this->suspend = $data['suspend'] ?? null;
+        $this->schedule = isset($data['schedule']) ? $data['schedule'] : null;
+        $this->startingDeadlineSeconds = isset($data['startingDeadlineSeconds']) ? $data['startingDeadlineSeconds'] : null;
+        $this->successfulJobsHistoryLimit = isset($data['successfulJobsHistoryLimit']) ? $data['successfulJobsHistoryLimit'] : null;
+        $this->suspend = isset($data['suspend']) ? $data['suspend'] : null;
     }
 }

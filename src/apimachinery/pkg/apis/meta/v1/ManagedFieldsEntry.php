@@ -54,14 +54,14 @@ class ManagedFieldsEntry extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->fieldsType = $data['fieldsType'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->fieldsType = isset($data['fieldsType']) ? $data['fieldsType'] : null;
         if (isset($data['fieldsV1'])) {
             $this->fieldsV1 = new FieldsV1($data['fieldsV1']);
         }
-        $this->manager = $data['manager'] ?? null;
-        $this->operation = $data['operation'] ?? null;
-        $this->subresource = $data['subresource'] ?? null;
+        $this->manager = isset($data['manager']) ? $data['manager'] : null;
+        $this->operation = isset($data['operation']) ? $data['operation'] : null;
+        $this->subresource = isset($data['subresource']) ? $data['subresource'] : null;
         if (isset($data['time'])) {
             $this->time = new Time($data['time']);
         }

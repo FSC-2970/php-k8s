@@ -231,64 +231,64 @@ class PodSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->activeDeadlineSeconds = $data['activeDeadlineSeconds'] ?? null;
+        $this->activeDeadlineSeconds = isset($data['activeDeadlineSeconds']) ? $data['activeDeadlineSeconds'] : null;
         if (isset($data['affinity'])) {
             $this->affinity = new Affinity($data['affinity']);
         }
-        $this->automountServiceAccountToken = $data['automountServiceAccountToken'] ?? null;
+        $this->automountServiceAccountToken = isset($data['automountServiceAccountToken']) ? $data['automountServiceAccountToken'] : null;
         $this->containers = array_map(function ($a) {
             return new Container($a);
-        }, $data['containers'] ?? []);
+        }, isset($data['containers']) ? $data['containers'] : []);
         if (isset($data['dnsConfig'])) {
             $this->dnsConfig = new PodDNSConfig($data['dnsConfig']);
         }
-        $this->dnsPolicy = $data['dnsPolicy'] ?? null;
-        $this->enableServiceLinks = $data['enableServiceLinks'] ?? null;
+        $this->dnsPolicy = isset($data['dnsPolicy']) ? $data['dnsPolicy'] : null;
+        $this->enableServiceLinks = isset($data['enableServiceLinks']) ? $data['enableServiceLinks'] : null;
         $this->ephemeralContainers = array_map(function ($a) {
             return new EphemeralContainer($a);
-        }, $data['ephemeralContainers'] ?? []);
+        }, isset($data['ephemeralContainers']) ? $data['ephemeralContainers'] : []);
         $this->hostAliases = array_map(function ($a) {
             return new HostAlias($a);
-        }, $data['hostAliases'] ?? []);
-        $this->hostIPC = $data['hostIPC'] ?? null;
-        $this->hostNetwork = $data['hostNetwork'] ?? null;
-        $this->hostPID = $data['hostPID'] ?? null;
-        $this->hostname = $data['hostname'] ?? null;
+        }, isset($data['hostAliases']) ? $data['hostAliases'] : []);
+        $this->hostIPC = isset($data['hostIPC']) ? $data['hostIPC'] : null;
+        $this->hostNetwork = isset($data['hostNetwork']) ? $data['hostNetwork'] : null;
+        $this->hostPID = isset($data['hostPID']) ? $data['hostPID'] : null;
+        $this->hostname = isset($data['hostname']) ? $data['hostname'] : null;
         $this->imagePullSecrets = array_map(function ($a) {
             return new LocalObjectReference($a);
-        }, $data['imagePullSecrets'] ?? []);
+        }, isset($data['imagePullSecrets']) ? $data['imagePullSecrets'] : []);
         $this->initContainers = array_map(function ($a) {
             return new Container($a);
-        }, $data['initContainers'] ?? []);
-        $this->nodeName = $data['nodeName'] ?? null;
-        $this->nodeSelector = $data['nodeSelector'] ?? null;
-        $this->overhead = $data['overhead'] ?? null;
-        $this->preemptionPolicy = $data['preemptionPolicy'] ?? null;
-        $this->priority = $data['priority'] ?? null;
-        $this->priorityClassName = $data['priorityClassName'] ?? null;
+        }, isset($data['initContainers']) ? $data['initContainers'] : []);
+        $this->nodeName = isset($data['nodeName']) ? $data['nodeName'] : null;
+        $this->nodeSelector = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
+        $this->overhead = isset($data['overhead']) ? $data['overhead'] : null;
+        $this->preemptionPolicy = isset($data['preemptionPolicy']) ? $data['preemptionPolicy'] : null;
+        $this->priority = isset($data['priority']) ? $data['priority'] : null;
+        $this->priorityClassName = isset($data['priorityClassName']) ? $data['priorityClassName'] : null;
         $this->readinessGates = array_map(function ($a) {
             return new PodReadinessGate($a);
-        }, $data['readinessGates'] ?? []);
-        $this->restartPolicy = $data['restartPolicy'] ?? null;
-        $this->runtimeClassName = $data['runtimeClassName'] ?? null;
-        $this->schedulerName = $data['schedulerName'] ?? null;
+        }, isset($data['readinessGates']) ? $data['readinessGates'] : []);
+        $this->restartPolicy = isset($data['restartPolicy']) ? $data['restartPolicy'] : null;
+        $this->runtimeClassName = isset($data['runtimeClassName']) ? $data['runtimeClassName'] : null;
+        $this->schedulerName = isset($data['schedulerName']) ? $data['schedulerName'] : null;
         if (isset($data['securityContext'])) {
             $this->securityContext = new PodSecurityContext($data['securityContext']);
         }
-        $this->serviceAccount = $data['serviceAccount'] ?? null;
-        $this->serviceAccountName = $data['serviceAccountName'] ?? null;
-        $this->setHostnameAsFQDN = $data['setHostnameAsFQDN'] ?? null;
-        $this->shareProcessNamespace = $data['shareProcessNamespace'] ?? null;
-        $this->subdomain = $data['subdomain'] ?? null;
-        $this->terminationGracePeriodSeconds = $data['terminationGracePeriodSeconds'] ?? null;
+        $this->serviceAccount = isset($data['serviceAccount']) ? $data['serviceAccount'] : null;
+        $this->serviceAccountName = isset($data['serviceAccountName']) ? $data['serviceAccountName'] : null;
+        $this->setHostnameAsFQDN = isset($data['setHostnameAsFQDN']) ? $data['setHostnameAsFQDN'] : null;
+        $this->shareProcessNamespace = isset($data['shareProcessNamespace']) ? $data['shareProcessNamespace'] : null;
+        $this->subdomain = isset($data['subdomain']) ? $data['subdomain'] : null;
+        $this->terminationGracePeriodSeconds = isset($data['terminationGracePeriodSeconds']) ? $data['terminationGracePeriodSeconds'] : null;
         $this->tolerations = array_map(function ($a) {
             return new Toleration($a);
-        }, $data['tolerations'] ?? []);
+        }, isset($data['tolerations']) ? $data['tolerations'] : []);
         $this->topologySpreadConstraints = array_map(function ($a) {
             return new TopologySpreadConstraint($a);
-        }, $data['topologySpreadConstraints'] ?? []);
+        }, isset($data['topologySpreadConstraints']) ? $data['topologySpreadConstraints'] : []);
         $this->volumes = array_map(function ($a) {
             return new Volume($a);
-        }, $data['volumes'] ?? []);
+        }, isset($data['volumes']) ? $data['volumes'] : []);
     }
 }

@@ -21,7 +21,7 @@ class EventSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->component = $data['component'] ?? null;
-        $this->host = $data['host'] ?? null;
+        $this->component = isset($data['component']) ? $data['component'] : null;
+        $this->host = isset($data['host']) ? $data['host'] : null;
     }
 }

@@ -49,11 +49,11 @@ class StatusDetails extends \k8s\Resource
     {
         $this->causes = array_map(function ($a) {
             return new StatusCause($a);
-        }, $data['causes'] ?? []);
-        $this->group = $data['group'] ?? null;
-        $this->kind = $data['kind'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->retryAfterSeconds = $data['retryAfterSeconds'] ?? null;
-        $this->uid = $data['uid'] ?? null;
+        }, isset($data['causes']) ? $data['causes'] : []);
+        $this->group = isset($data['group']) ? $data['group'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->retryAfterSeconds = isset($data['retryAfterSeconds']) ? $data['retryAfterSeconds'] : null;
+        $this->uid = isset($data['uid']) ? $data['uid'] : null;
     }
 }

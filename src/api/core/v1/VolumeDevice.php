@@ -21,7 +21,7 @@ class VolumeDevice extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->devicePath = $data['devicePath'] ?? null;
-        $this->name = $data['name'] ?? null;
+        $this->devicePath = isset($data['devicePath']) ? $data['devicePath'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
     }
 }

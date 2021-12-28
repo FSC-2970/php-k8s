@@ -42,14 +42,14 @@ class ControllerRevision extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         if (isset($data['data'])) {
             $this->data = new RawExtension($data['data']);
         }
-        $this->kind = $data['kind'] ?? null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }
-        $this->revision = $data['revision'] ?? null;
+        $this->revision = isset($data['revision']) ? $data['revision'] : null;
     }
 }

@@ -7,7 +7,4 @@ namespace k8s\apimachinery\pkg\apis\meta\v1;
  */
 class Patch extends \k8s\Resource
 {
-    public function __construct($data)
-    {
-    }
 }

@@ -71,16 +71,16 @@ class CSIPersistentVolumeSource extends \k8s\Resource
         if (isset($data['controllerPublishSecretRef'])) {
             $this->controllerPublishSecretRef = new SecretReference($data['controllerPublishSecretRef']);
         }
-        $this->driver = $data['driver'] ?? null;
-        $this->fsType = $data['fsType'] ?? null;
+        $this->driver = isset($data['driver']) ? $data['driver'] : null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
         if (isset($data['nodePublishSecretRef'])) {
             $this->nodePublishSecretRef = new SecretReference($data['nodePublishSecretRef']);
         }
         if (isset($data['nodeStageSecretRef'])) {
             $this->nodeStageSecretRef = new SecretReference($data['nodeStageSecretRef']);
         }
-        $this->readOnly = $data['readOnly'] ?? null;
-        $this->volumeAttributes = $data['volumeAttributes'] ?? null;
-        $this->volumeHandle = $data['volumeHandle'] ?? null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->volumeAttributes = isset($data['volumeAttributes']) ? $data['volumeAttributes'] : null;
+        $this->volumeHandle = isset($data['volumeHandle']) ? $data['volumeHandle'] : null;
     }
 }

@@ -33,9 +33,9 @@ class GlusterfsPersistentVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->endpoints = $data['endpoints'] ?? null;
-        $this->endpointsNamespace = $data['endpointsNamespace'] ?? null;
-        $this->path = $data['path'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
+        $this->endpoints = isset($data['endpoints']) ? $data['endpoints'] : null;
+        $this->endpointsNamespace = isset($data['endpointsNamespace']) ? $data['endpointsNamespace'] : null;
+        $this->path = isset($data['path']) ? $data['path'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
     }
 }

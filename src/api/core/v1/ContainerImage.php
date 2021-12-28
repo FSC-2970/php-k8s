@@ -21,7 +21,7 @@ class ContainerImage extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->names = $data['names'] ?? [];
-        $this->sizeBytes = $data['sizeBytes'] ?? null;
+        $this->names = isset($data['names']) ? $data['names'] : [];
+        $this->sizeBytes = isset($data['sizeBytes']) ? $data['sizeBytes'] : null;
     }
 }

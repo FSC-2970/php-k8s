@@ -27,8 +27,8 @@ class ScopedResourceSelectorRequirement extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->operator = $data['operator'] ?? null;
-        $this->scopeName = $data['scopeName'] ?? null;
-        $this->values = $data['values'] ?? [];
+        $this->operator = isset($data['operator']) ? $data['operator'] : null;
+        $this->scopeName = isset($data['scopeName']) ? $data['scopeName'] : null;
+        $this->values = isset($data['values']) ? $data['values'] : [];
     }
 }

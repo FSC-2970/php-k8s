@@ -41,12 +41,12 @@ class HorizontalPodAutoscalerStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->currentCPUUtilizationPercentage = $data['currentCPUUtilizationPercentage'] ?? null;
-        $this->currentReplicas = $data['currentReplicas'] ?? null;
-        $this->desiredReplicas = $data['desiredReplicas'] ?? null;
+        $this->currentCPUUtilizationPercentage = isset($data['currentCPUUtilizationPercentage']) ? $data['currentCPUUtilizationPercentage'] : null;
+        $this->currentReplicas = isset($data['currentReplicas']) ? $data['currentReplicas'] : null;
+        $this->desiredReplicas = isset($data['desiredReplicas']) ? $data['desiredReplicas'] : null;
         if (isset($data['lastScaleTime'])) {
             $this->lastScaleTime = new Time($data['lastScaleTime']);
         }
-        $this->observedGeneration = $data['observedGeneration'] ?? null;
+        $this->observedGeneration = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
     }
 }

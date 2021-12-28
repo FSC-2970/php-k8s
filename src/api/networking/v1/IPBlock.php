@@ -21,7 +21,7 @@ class IPBlock extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->cidr = $data['cidr'] ?? null;
-        $this->except = $data['except'] ?? [];
+        $this->cidr = isset($data['cidr']) ? $data['cidr'] : null;
+        $this->except = isset($data['except']) ? $data['except'] : [];
     }
 }

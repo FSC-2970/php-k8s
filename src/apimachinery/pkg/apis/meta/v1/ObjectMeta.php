@@ -125,29 +125,29 @@ class ObjectMeta extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->annotations = $data['annotations'] ?? null;
-        $this->clusterName = $data['clusterName'] ?? null;
+        $this->annotations = isset($data['annotations']) ? $data['annotations'] : null;
+        $this->clusterName = isset($data['clusterName']) ? $data['clusterName'] : null;
         if (isset($data['creationTimestamp'])) {
             $this->creationTimestamp = new Time($data['creationTimestamp']);
         }
-        $this->deletionGracePeriodSeconds = $data['deletionGracePeriodSeconds'] ?? null;
+        $this->deletionGracePeriodSeconds = isset($data['deletionGracePeriodSeconds']) ? $data['deletionGracePeriodSeconds'] : null;
         if (isset($data['deletionTimestamp'])) {
             $this->deletionTimestamp = new Time($data['deletionTimestamp']);
         }
-        $this->finalizers = $data['finalizers'] ?? [];
-        $this->generateName = $data['generateName'] ?? null;
-        $this->generation = $data['generation'] ?? null;
-        $this->labels = $data['labels'] ?? null;
+        $this->finalizers = isset($data['finalizers']) ? $data['finalizers'] : [];
+        $this->generateName = isset($data['generateName']) ? $data['generateName'] : null;
+        $this->generation = isset($data['generation']) ? $data['generation'] : null;
+        $this->labels = isset($data['labels']) ? $data['labels'] : null;
         $this->managedFields = array_map(function ($a) {
             return new ManagedFieldsEntry($a);
-        }, $data['managedFields'] ?? []);
-        $this->name = $data['name'] ?? null;
-        $this->namespace = $data['namespace'] ?? null;
+        }, isset($data['managedFields']) ? $data['managedFields'] : []);
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->namespace = isset($data['namespace']) ? $data['namespace'] : null;
         $this->ownerReferences = array_map(function ($a) {
             return new OwnerReference($a);
-        }, $data['ownerReferences'] ?? []);
-        $this->resourceVersion = $data['resourceVersion'] ?? null;
-        $this->selfLink = $data['selfLink'] ?? null;
-        $this->uid = $data['uid'] ?? null;
+        }, isset($data['ownerReferences']) ? $data['ownerReferences'] : []);
+        $this->resourceVersion = isset($data['resourceVersion']) ? $data['resourceVersion'] : null;
+        $this->selfLink = isset($data['selfLink']) ? $data['selfLink'] : null;
+        $this->uid = isset($data['uid']) ? $data['uid'] : null;
     }
 }

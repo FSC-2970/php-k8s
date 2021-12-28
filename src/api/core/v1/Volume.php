@@ -288,7 +288,7 @@ class Volume extends \k8s\Resource
         if (isset($data['iscsi'])) {
             $this->iscsi = new ISCSIVolumeSource($data['iscsi']);
         }
-        $this->name = $data['name'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
         if (isset($data['nfs'])) {
             $this->nfs = new NFSVolumeSource($data['nfs']);
         }

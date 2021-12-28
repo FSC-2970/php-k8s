@@ -40,7 +40,7 @@ class Subject extends \k8s\Resource
         if (isset($data['group'])) {
             $this->group = new GroupSubject($data['group']);
         }
-        $this->kind = $data['kind'] ?? null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['serviceAccount'])) {
             $this->serviceAccount = new ServiceAccountSubject($data['serviceAccount']);
         }

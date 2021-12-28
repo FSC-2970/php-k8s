@@ -41,12 +41,12 @@ class StorageOSVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->fsType = $data['fsType'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
+        $this->fsType = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
         if (isset($data['secretRef'])) {
             $this->secretRef = new LocalObjectReference($data['secretRef']);
         }
-        $this->volumeName = $data['volumeName'] ?? null;
-        $this->volumeNamespace = $data['volumeNamespace'] ?? null;
+        $this->volumeName = isset($data['volumeName']) ? $data['volumeName'] : null;
+        $this->volumeNamespace = isset($data['volumeNamespace']) ? $data['volumeNamespace'] : null;
     }
 }

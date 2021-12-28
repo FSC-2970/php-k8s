@@ -63,7 +63,7 @@ namespace k8s;
  */
 class Client
 {
-    private const METHOD = [
+    const METHOD = [
         'ComponentStatusList'                => ['/api/v1/componentstatuses', 'k8s\api\core\v1\ComponentStatusList'],
         'ConfigMapList'                      => ['/api/v1/configmaps', 'k8s\api\core\v1\ConfigMapList'],
         'EndpointsList'                      => ['/api/v1/endpoints', 'k8s\api\core\v1\EndpointsList'],

@@ -48,15 +48,15 @@ class SubjectAccessReviewSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->extra = $data['extra'] ?? null;
-        $this->groups = $data['groups'] ?? [];
+        $this->extra = isset($data['extra']) ? $data['extra'] : null;
+        $this->groups = isset($data['groups']) ? $data['groups'] : [];
         if (isset($data['nonResourceAttributes'])) {
             $this->nonResourceAttributes = new NonResourceAttributes($data['nonResourceAttributes']);
         }
         if (isset($data['resourceAttributes'])) {
             $this->resourceAttributes = new ResourceAttributes($data['resourceAttributes']);
         }
-        $this->uid = $data['uid'] ?? null;
-        $this->user = $data['user'] ?? null;
+        $this->uid = isset($data['uid']) ? $data['uid'] : null;
+        $this->user = isset($data['user']) ? $data['user'] : null;
     }
 }

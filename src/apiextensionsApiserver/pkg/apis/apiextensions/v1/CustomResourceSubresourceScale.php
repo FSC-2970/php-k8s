@@ -27,8 +27,8 @@ class CustomResourceSubresourceScale extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->labelSelectorPath = $data['labelSelectorPath'] ?? null;
-        $this->specReplicasPath = $data['specReplicasPath'] ?? null;
-        $this->statusReplicasPath = $data['statusReplicasPath'] ?? null;
+        $this->labelSelectorPath = isset($data['labelSelectorPath']) ? $data['labelSelectorPath'] : null;
+        $this->specReplicasPath = isset($data['specReplicasPath']) ? $data['specReplicasPath'] : null;
+        $this->statusReplicasPath = isset($data['statusReplicasPath']) ? $data['statusReplicasPath'] : null;
     }
 }

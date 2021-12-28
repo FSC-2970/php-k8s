@@ -29,10 +29,10 @@ class ResourceMetricStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->currentAverageUtilization = $data['currentAverageUtilization'] ?? null;
+        $this->currentAverageUtilization = isset($data['currentAverageUtilization']) ? $data['currentAverageUtilization'] : null;
         if (isset($data['currentAverageValue'])) {
             $this->currentAverageValue = new Quantity($data['currentAverageValue']);
         }
-        $this->name = $data['name'] ?? null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
     }
 }

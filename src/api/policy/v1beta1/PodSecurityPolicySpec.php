@@ -168,34 +168,34 @@ class PodSecurityPolicySpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->allowPrivilegeEscalation = $data['allowPrivilegeEscalation'] ?? null;
+        $this->allowPrivilegeEscalation = isset($data['allowPrivilegeEscalation']) ? $data['allowPrivilegeEscalation'] : null;
         $this->allowedCSIDrivers = array_map(function ($a) {
             return new AllowedCSIDriver($a);
-        }, $data['allowedCSIDrivers'] ?? []);
-        $this->allowedCapabilities = $data['allowedCapabilities'] ?? [];
+        }, isset($data['allowedCSIDrivers']) ? $data['allowedCSIDrivers'] : []);
+        $this->allowedCapabilities = isset($data['allowedCapabilities']) ? $data['allowedCapabilities'] : [];
         $this->allowedFlexVolumes = array_map(function ($a) {
             return new AllowedFlexVolume($a);
-        }, $data['allowedFlexVolumes'] ?? []);
+        }, isset($data['allowedFlexVolumes']) ? $data['allowedFlexVolumes'] : []);
         $this->allowedHostPaths = array_map(function ($a) {
             return new AllowedHostPath($a);
-        }, $data['allowedHostPaths'] ?? []);
-        $this->allowedProcMountTypes = $data['allowedProcMountTypes'] ?? [];
-        $this->allowedUnsafeSysctls = $data['allowedUnsafeSysctls'] ?? [];
-        $this->defaultAddCapabilities = $data['defaultAddCapabilities'] ?? [];
-        $this->defaultAllowPrivilegeEscalation = $data['defaultAllowPrivilegeEscalation'] ?? null;
-        $this->forbiddenSysctls = $data['forbiddenSysctls'] ?? [];
+        }, isset($data['allowedHostPaths']) ? $data['allowedHostPaths'] : []);
+        $this->allowedProcMountTypes = isset($data['allowedProcMountTypes']) ? $data['allowedProcMountTypes'] : [];
+        $this->allowedUnsafeSysctls = isset($data['allowedUnsafeSysctls']) ? $data['allowedUnsafeSysctls'] : [];
+        $this->defaultAddCapabilities = isset($data['defaultAddCapabilities']) ? $data['defaultAddCapabilities'] : [];
+        $this->defaultAllowPrivilegeEscalation = isset($data['defaultAllowPrivilegeEscalation']) ? $data['defaultAllowPrivilegeEscalation'] : null;
+        $this->forbiddenSysctls = isset($data['forbiddenSysctls']) ? $data['forbiddenSysctls'] : [];
         if (isset($data['fsGroup'])) {
             $this->fsGroup = new FSGroupStrategyOptions($data['fsGroup']);
         }
-        $this->hostIPC = $data['hostIPC'] ?? null;
-        $this->hostNetwork = $data['hostNetwork'] ?? null;
-        $this->hostPID = $data['hostPID'] ?? null;
+        $this->hostIPC = isset($data['hostIPC']) ? $data['hostIPC'] : null;
+        $this->hostNetwork = isset($data['hostNetwork']) ? $data['hostNetwork'] : null;
+        $this->hostPID = isset($data['hostPID']) ? $data['hostPID'] : null;
         $this->hostPorts = array_map(function ($a) {
             return new HostPortRange($a);
-        }, $data['hostPorts'] ?? []);
-        $this->privileged = $data['privileged'] ?? null;
-        $this->readOnlyRootFilesystem = $data['readOnlyRootFilesystem'] ?? null;
-        $this->requiredDropCapabilities = $data['requiredDropCapabilities'] ?? [];
+        }, isset($data['hostPorts']) ? $data['hostPorts'] : []);
+        $this->privileged = isset($data['privileged']) ? $data['privileged'] : null;
+        $this->readOnlyRootFilesystem = isset($data['readOnlyRootFilesystem']) ? $data['readOnlyRootFilesystem'] : null;
+        $this->requiredDropCapabilities = isset($data['requiredDropCapabilities']) ? $data['requiredDropCapabilities'] : [];
         if (isset($data['runAsGroup'])) {
             $this->runAsGroup = new RunAsGroupStrategyOptions($data['runAsGroup']);
         }
@@ -211,6 +211,6 @@ class PodSecurityPolicySpec extends \k8s\Resource
         if (isset($data['supplementalGroups'])) {
             $this->supplementalGroups = new SupplementalGroupsStrategyOptions($data['supplementalGroups']);
         }
-        $this->volumes = $data['volumes'] ?? [];
+        $this->volumes = isset($data['volumes']) ? $data['volumes'] : [];
     }
 }

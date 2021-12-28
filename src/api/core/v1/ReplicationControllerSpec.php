@@ -35,9 +35,9 @@ class ReplicationControllerSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->minReadySeconds = $data['minReadySeconds'] ?? null;
-        $this->replicas = $data['replicas'] ?? null;
-        $this->selector = $data['selector'] ?? null;
+        $this->minReadySeconds = isset($data['minReadySeconds']) ? $data['minReadySeconds'] : null;
+        $this->replicas = isset($data['replicas']) ? $data['replicas'] : null;
+        $this->selector = isset($data['selector']) ? $data['selector'] : null;
         if (isset($data['template'])) {
             $this->template = new PodTemplateSpec($data['template']);
         }

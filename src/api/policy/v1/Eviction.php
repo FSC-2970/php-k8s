@@ -36,11 +36,11 @@ class Eviction extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         if (isset($data['deleteOptions'])) {
             $this->deleteOptions = new DeleteOptions($data['deleteOptions']);
         }
-        $this->kind = $data['kind'] ?? null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }

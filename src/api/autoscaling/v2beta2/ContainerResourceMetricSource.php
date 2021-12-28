@@ -29,8 +29,8 @@ class ContainerResourceMetricSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->container = $data['container'] ?? null;
-        $this->name = $data['name'] ?? null;
+        $this->container = isset($data['container']) ? $data['container'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
         if (isset($data['target'])) {
             $this->target = new MetricTarget($data['target']);
         }

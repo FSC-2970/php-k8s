@@ -66,19 +66,19 @@ class JobStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->active = $data['active'] ?? null;
-        $this->completedIndexes = $data['completedIndexes'] ?? null;
+        $this->active = isset($data['active']) ? $data['active'] : null;
+        $this->completedIndexes = isset($data['completedIndexes']) ? $data['completedIndexes'] : null;
         if (isset($data['completionTime'])) {
             $this->completionTime = new Time($data['completionTime']);
         }
         $this->conditions = array_map(function ($a) {
             return new JobCondition($a);
-        }, $data['conditions'] ?? []);
-        $this->failed = $data['failed'] ?? null;
+        }, isset($data['conditions']) ? $data['conditions'] : []);
+        $this->failed = isset($data['failed']) ? $data['failed'] : null;
         if (isset($data['startTime'])) {
             $this->startTime = new Time($data['startTime']);
         }
-        $this->succeeded = $data['succeeded'] ?? null;
+        $this->succeeded = isset($data['succeeded']) ? $data['succeeded'] : null;
         if (isset($data['uncountedTerminatedPods'])) {
             $this->uncountedTerminatedPods = new UncountedTerminatedPods($data['uncountedTerminatedPods']);
         }

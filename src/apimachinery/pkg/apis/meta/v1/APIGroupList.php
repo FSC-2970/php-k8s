@@ -29,10 +29,10 @@ class APIGroupList extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->groups = array_map(function ($a) {
             return new APIGroup($a);
-        }, $data['groups'] ?? []);
-        $this->kind = $data['kind'] ?? null;
+        }, isset($data['groups']) ? $data['groups'] : []);
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
     }
 }

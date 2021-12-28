@@ -19,6 +19,6 @@ class ScopeSelector extends \k8s\Resource
     {
         $this->matchExpressions = array_map(function ($a) {
             return new ScopedResourceSelectorRequirement($a);
-        }, $data['matchExpressions'] ?? []);
+        }, isset($data['matchExpressions']) ? $data['matchExpressions'] : []);
     }
 }

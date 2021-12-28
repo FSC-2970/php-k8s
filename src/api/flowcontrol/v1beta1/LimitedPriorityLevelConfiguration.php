@@ -29,7 +29,7 @@ class LimitedPriorityLevelConfiguration extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->assuredConcurrencyShares = $data['assuredConcurrencyShares'] ?? null;
+        $this->assuredConcurrencyShares = isset($data['assuredConcurrencyShares']) ? $data['assuredConcurrencyShares'] : null;
         if (isset($data['limitResponse'])) {
             $this->limitResponse = new LimitResponse($data['limitResponse']);
         }

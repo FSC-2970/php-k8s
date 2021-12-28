@@ -21,7 +21,7 @@ class ScaleStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->replicas = $data['replicas'] ?? null;
-        $this->selector = $data['selector'] ?? null;
+        $this->replicas = isset($data['replicas']) ? $data['replicas'] : null;
+        $this->selector = isset($data['selector']) ? $data['selector'] : null;
     }
 }

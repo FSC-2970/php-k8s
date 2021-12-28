@@ -25,7 +25,7 @@ class NamespaceStatus extends \k8s\Resource
     {
         $this->conditions = array_map(function ($a) {
             return new NamespaceCondition($a);
-        }, $data['conditions'] ?? []);
-        $this->phase = $data['phase'] ?? null;
+        }, isset($data['conditions']) ? $data['conditions'] : []);
+        $this->phase = isset($data['phase']) ? $data['phase'] : null;
     }
 }

@@ -29,10 +29,10 @@ class ResourceFieldSelector extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->containerName = $data['containerName'] ?? null;
+        $this->containerName = isset($data['containerName']) ? $data['containerName'] : null;
         if (isset($data['divisor'])) {
             $this->divisor = new Quantity($data['divisor']);
         }
-        $this->resource = $data['resource'] ?? null;
+        $this->resource = isset($data['resource']) ? $data['resource'] : null;
     }
 }

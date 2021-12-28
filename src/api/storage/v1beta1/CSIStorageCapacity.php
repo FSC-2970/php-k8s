@@ -71,11 +71,11 @@ class CSIStorageCapacity extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         if (isset($data['capacity'])) {
             $this->capacity = new Quantity($data['capacity']);
         }
-        $this->kind = $data['kind'] ?? null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['maximumVolumeSize'])) {
             $this->maximumVolumeSize = new Quantity($data['maximumVolumeSize']);
         }
@@ -85,6 +85,6 @@ class CSIStorageCapacity extends \k8s\Resource
         if (isset($data['nodeTopology'])) {
             $this->nodeTopology = new LabelSelector($data['nodeTopology']);
         }
-        $this->storageClassName = $data['storageClassName'] ?? null;
+        $this->storageClassName = isset($data['storageClassName']) ? $data['storageClassName'] : null;
     }
 }

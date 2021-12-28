@@ -23,7 +23,7 @@ class TCPSocketAction extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->host = $data['host'] ?? null;
+        $this->host = isset($data['host']) ? $data['host'] : null;
         if (isset($data['port'])) {
             $this->port = new IntOrString($data['port']);
         }

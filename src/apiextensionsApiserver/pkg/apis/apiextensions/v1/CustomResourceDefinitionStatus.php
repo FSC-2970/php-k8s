@@ -35,7 +35,7 @@ class CustomResourceDefinitionStatus extends \k8s\Resource
         }
         $this->conditions = array_map(function ($a) {
             return new CustomResourceDefinitionCondition($a);
-        }, $data['conditions'] ?? []);
-        $this->storedVersions = $data['storedVersions'] ?? [];
+        }, isset($data['conditions']) ? $data['conditions'] : []);
+        $this->storedVersions = isset($data['storedVersions']) ? $data['storedVersions'] : [];
     }
 }

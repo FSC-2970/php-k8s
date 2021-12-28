@@ -71,17 +71,17 @@ class StatefulSetStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->availableReplicas = $data['availableReplicas'] ?? null;
-        $this->collisionCount = $data['collisionCount'] ?? null;
+        $this->availableReplicas = isset($data['availableReplicas']) ? $data['availableReplicas'] : null;
+        $this->collisionCount = isset($data['collisionCount']) ? $data['collisionCount'] : null;
         $this->conditions = array_map(function ($a) {
             return new StatefulSetCondition($a);
-        }, $data['conditions'] ?? []);
-        $this->currentReplicas = $data['currentReplicas'] ?? null;
-        $this->currentRevision = $data['currentRevision'] ?? null;
-        $this->observedGeneration = $data['observedGeneration'] ?? null;
-        $this->readyReplicas = $data['readyReplicas'] ?? null;
-        $this->replicas = $data['replicas'] ?? null;
-        $this->updateRevision = $data['updateRevision'] ?? null;
-        $this->updatedReplicas = $data['updatedReplicas'] ?? null;
+        }, isset($data['conditions']) ? $data['conditions'] : []);
+        $this->currentReplicas = isset($data['currentReplicas']) ? $data['currentReplicas'] : null;
+        $this->currentRevision = isset($data['currentRevision']) ? $data['currentRevision'] : null;
+        $this->observedGeneration = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
+        $this->readyReplicas = isset($data['readyReplicas']) ? $data['readyReplicas'] : null;
+        $this->replicas = isset($data['replicas']) ? $data['replicas'] : null;
+        $this->updateRevision = isset($data['updateRevision']) ? $data['updateRevision'] : null;
+        $this->updatedReplicas = isset($data['updatedReplicas']) ? $data['updatedReplicas'] : null;
     }
 }

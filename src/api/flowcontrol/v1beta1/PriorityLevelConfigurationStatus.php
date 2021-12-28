@@ -19,6 +19,6 @@ class PriorityLevelConfigurationStatus extends \k8s\Resource
     {
         $this->conditions = array_map(function ($a) {
             return new PriorityLevelConfigurationCondition($a);
-        }, $data['conditions'] ?? []);
+        }, isset($data['conditions']) ? $data['conditions'] : []);
     }
 }

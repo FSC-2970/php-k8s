@@ -26,6 +26,6 @@ class PreferredSchedulingTerm extends \k8s\Resource
         if (isset($data['preference'])) {
             $this->preference = new NodeSelectorTerm($data['preference']);
         }
-        $this->weight = $data['weight'] ?? null;
+        $this->weight = isset($data['weight']) ? $data['weight'] : null;
     }
 }

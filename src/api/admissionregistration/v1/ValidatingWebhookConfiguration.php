@@ -36,13 +36,13 @@ class ValidatingWebhookConfiguration extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiVersion = $data['apiVersion'] ?? null;
-        $this->kind = $data['kind'] ?? null;
+        $this->apiVersion = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->kind = isset($data['kind']) ? $data['kind'] : null;
         if (isset($data['metadata'])) {
             $this->metadata = new ObjectMeta($data['metadata']);
         }
         $this->webhooks = array_map(function ($a) {
             return new ValidatingWebhook($a);
-        }, $data['webhooks'] ?? []);
+        }, isset($data['webhooks']) ? $data['webhooks'] : []);
     }
 }

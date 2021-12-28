@@ -33,9 +33,9 @@ class EndpointPort extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->appProtocol = $data['appProtocol'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->port = $data['port'] ?? null;
-        $this->protocol = $data['protocol'] ?? null;
+        $this->appProtocol = isset($data['appProtocol']) ? $data['appProtocol'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->port = isset($data['port']) ? $data['port'] : null;
+        $this->protocol = isset($data['protocol']) ? $data['protocol'] : null;
     }
 }

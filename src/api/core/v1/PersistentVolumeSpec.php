@@ -214,7 +214,7 @@ class PersistentVolumeSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->accessModes = $data['accessModes'] ?? [];
+        $this->accessModes = isset($data['accessModes']) ? $data['accessModes'] : [];
         if (isset($data['awsElasticBlockStore'])) {
             $this->awsElasticBlockStore = new AWSElasticBlockStoreVolumeSource($data['awsElasticBlockStore']);
         }
@@ -224,7 +224,7 @@ class PersistentVolumeSpec extends \k8s\Resource
         if (isset($data['azureFile'])) {
             $this->azureFile = new AzureFilePersistentVolumeSource($data['azureFile']);
         }
-        $this->capacity = $data['capacity'] ?? null;
+        $this->capacity = isset($data['capacity']) ? $data['capacity'] : null;
         if (isset($data['cephfs'])) {
             $this->cephfs = new CephFSPersistentVolumeSource($data['cephfs']);
         }
@@ -261,14 +261,14 @@ class PersistentVolumeSpec extends \k8s\Resource
         if (isset($data['local'])) {
             $this->local = new LocalVolumeSource($data['local']);
         }
-        $this->mountOptions = $data['mountOptions'] ?? [];
+        $this->mountOptions = isset($data['mountOptions']) ? $data['mountOptions'] : [];
         if (isset($data['nfs'])) {
             $this->nfs = new NFSVolumeSource($data['nfs']);
         }
         if (isset($data['nodeAffinity'])) {
             $this->nodeAffinity = new VolumeNodeAffinity($data['nodeAffinity']);
         }
-        $this->persistentVolumeReclaimPolicy = $data['persistentVolumeReclaimPolicy'] ?? null;
+        $this->persistentVolumeReclaimPolicy = isset($data['persistentVolumeReclaimPolicy']) ? $data['persistentVolumeReclaimPolicy'] : null;
         if (isset($data['photonPersistentDisk'])) {
             $this->photonPersistentDisk = new PhotonPersistentDiskVolumeSource($data['photonPersistentDisk']);
         }
@@ -284,11 +284,11 @@ class PersistentVolumeSpec extends \k8s\Resource
         if (isset($data['scaleIO'])) {
             $this->scaleIO = new ScaleIOPersistentVolumeSource($data['scaleIO']);
         }
-        $this->storageClassName = $data['storageClassName'] ?? null;
+        $this->storageClassName = isset($data['storageClassName']) ? $data['storageClassName'] : null;
         if (isset($data['storageos'])) {
             $this->storageos = new StorageOSPersistentVolumeSource($data['storageos']);
         }
-        $this->volumeMode = $data['volumeMode'] ?? null;
+        $this->volumeMode = isset($data['volumeMode']) ? $data['volumeMode'] : null;
         if (isset($data['vsphereVolume'])) {
             $this->vsphereVolume = new VsphereVirtualDiskVolumeSource($data['vsphereVolume']);
         }

@@ -21,7 +21,7 @@ class FlockerVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->datasetName = $data['datasetName'] ?? null;
-        $this->datasetUUID = $data['datasetUUID'] ?? null;
+        $this->datasetName = isset($data['datasetName']) ? $data['datasetName'] : null;
+        $this->datasetUUID = isset($data['datasetUUID']) ? $data['datasetUUID'] : null;
     }
 }

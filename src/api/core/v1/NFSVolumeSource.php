@@ -27,8 +27,8 @@ class NFSVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->path = $data['path'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
-        $this->server = $data['server'] ?? null;
+        $this->path = isset($data['path']) ? $data['path'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->server = isset($data['server']) ? $data['server'] : null;
     }
 }

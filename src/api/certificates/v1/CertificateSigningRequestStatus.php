@@ -44,9 +44,9 @@ class CertificateSigningRequestStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->certificate = $data['certificate'] ?? null;
+        $this->certificate = isset($data['certificate']) ? $data['certificate'] : null;
         $this->conditions = array_map(function ($a) {
             return new CertificateSigningRequestCondition($a);
-        }, $data['conditions'] ?? []);
+        }, isset($data['conditions']) ? $data['conditions'] : []);
     }
 }

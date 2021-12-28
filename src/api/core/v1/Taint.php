@@ -35,11 +35,11 @@ class Taint extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->effect = $data['effect'] ?? null;
-        $this->key = $data['key'] ?? null;
+        $this->effect = isset($data['effect']) ? $data['effect'] : null;
+        $this->key = isset($data['key']) ? $data['key'] : null;
         if (isset($data['timeAdded'])) {
             $this->timeAdded = new Time($data['timeAdded']);
         }
-        $this->value = $data['value'] ?? null;
+        $this->value = isset($data['value']) ? $data['value'] : null;
     }
 }

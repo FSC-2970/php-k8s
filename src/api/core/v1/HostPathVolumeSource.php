@@ -21,7 +21,7 @@ class HostPathVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->path = $data['path'] ?? null;
-        $this->type = $data['type'] ?? null;
+        $this->path = isset($data['path']) ? $data['path'] : null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

@@ -23,7 +23,7 @@ class SELinuxStrategyOptions extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->rule = $data['rule'] ?? null;
+        $this->rule = isset($data['rule']) ? $data['rule'] : null;
         if (isset($data['seLinuxOptions'])) {
             $this->seLinuxOptions = new SELinuxOptions($data['seLinuxOptions']);
         }

@@ -33,8 +33,8 @@ class ConfigMapProjection extends \k8s\Resource
     {
         $this->items = array_map(function ($a) {
             return new KeyToPath($a);
-        }, $data['items'] ?? []);
-        $this->name = $data['name'] ?? null;
-        $this->optional = $data['optional'] ?? null;
+        }, isset($data['items']) ? $data['items'] : []);
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->optional = isset($data['optional']) ? $data['optional'] : null;
     }
 }

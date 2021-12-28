@@ -25,7 +25,7 @@ class FSGroupStrategyOptions extends \k8s\Resource
     {
         $this->ranges = array_map(function ($a) {
             return new IDRange($a);
-        }, $data['ranges'] ?? []);
-        $this->rule = $data['rule'] ?? null;
+        }, isset($data['ranges']) ? $data['ranges'] : []);
+        $this->rule = isset($data['rule']) ? $data['rule'] : null;
     }
 }

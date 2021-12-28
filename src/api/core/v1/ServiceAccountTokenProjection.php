@@ -27,8 +27,8 @@ class ServiceAccountTokenProjection extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->audience = $data['audience'] ?? null;
-        $this->expirationSeconds = $data['expirationSeconds'] ?? null;
-        $this->path = $data['path'] ?? null;
+        $this->audience = isset($data['audience']) ? $data['audience'] : null;
+        $this->expirationSeconds = isset($data['expirationSeconds']) ? $data['expirationSeconds'] : null;
+        $this->path = isset($data['path']) ? $data['path'] : null;
     }
 }

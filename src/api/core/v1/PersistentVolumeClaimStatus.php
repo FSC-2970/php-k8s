@@ -35,11 +35,11 @@ class PersistentVolumeClaimStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->accessModes = $data['accessModes'] ?? [];
-        $this->capacity = $data['capacity'] ?? null;
+        $this->accessModes = isset($data['accessModes']) ? $data['accessModes'] : [];
+        $this->capacity = isset($data['capacity']) ? $data['capacity'] : null;
         $this->conditions = array_map(function ($a) {
             return new PersistentVolumeClaimCondition($a);
-        }, $data['conditions'] ?? []);
-        $this->phase = $data['phase'] ?? null;
+        }, isset($data['conditions']) ? $data['conditions'] : []);
+        $this->phase = isset($data['phase']) ? $data['phase'] : null;
     }
 }

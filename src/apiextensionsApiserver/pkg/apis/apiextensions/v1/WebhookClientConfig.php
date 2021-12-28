@@ -41,10 +41,10 @@ class WebhookClientConfig extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->caBundle = $data['caBundle'] ?? null;
+        $this->caBundle = isset($data['caBundle']) ? $data['caBundle'] : null;
         if (isset($data['service'])) {
             $this->service = new ServiceReference($data['service']);
         }
-        $this->url = $data['url'] ?? null;
+        $this->url = isset($data['url']) ? $data['url'] : null;
     }
 }

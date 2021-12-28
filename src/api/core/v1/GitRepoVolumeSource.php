@@ -29,8 +29,8 @@ class GitRepoVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->directory = $data['directory'] ?? null;
-        $this->repository = $data['repository'] ?? null;
-        $this->revision = $data['revision'] ?? null;
+        $this->directory = isset($data['directory']) ? $data['directory'] : null;
+        $this->repository = isset($data['repository']) ? $data['repository'] : null;
+        $this->revision = isset($data['revision']) ? $data['revision'] : null;
     }
 }

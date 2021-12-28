@@ -66,7 +66,7 @@ class PersistentVolumeClaimSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->accessModes = $data['accessModes'] ?? [];
+        $this->accessModes = isset($data['accessModes']) ? $data['accessModes'] : [];
         if (isset($data['dataSource'])) {
             $this->dataSource = new TypedLocalObjectReference($data['dataSource']);
         }
@@ -79,8 +79,8 @@ class PersistentVolumeClaimSpec extends \k8s\Resource
         if (isset($data['selector'])) {
             $this->selector = new LabelSelector($data['selector']);
         }
-        $this->storageClassName = $data['storageClassName'] ?? null;
-        $this->volumeMode = $data['volumeMode'] ?? null;
-        $this->volumeName = $data['volumeName'] ?? null;
+        $this->storageClassName = isset($data['storageClassName']) ? $data['storageClassName'] : null;
+        $this->volumeMode = isset($data['volumeMode']) ? $data['volumeMode'] : null;
+        $this->volumeName = isset($data['volumeName']) ? $data['volumeName'] : null;
     }
 }

@@ -25,9 +25,9 @@ class NodeSelectorTerm extends \k8s\Resource
     {
         $this->matchExpressions = array_map(function ($a) {
             return new NodeSelectorRequirement($a);
-        }, $data['matchExpressions'] ?? []);
+        }, isset($data['matchExpressions']) ? $data['matchExpressions'] : []);
         $this->matchFields = array_map(function ($a) {
             return new NodeSelectorRequirement($a);
-        }, $data['matchFields'] ?? []);
+        }, isset($data['matchFields']) ? $data['matchFields'] : []);
     }
 }

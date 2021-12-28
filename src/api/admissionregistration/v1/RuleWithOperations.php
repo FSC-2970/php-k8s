@@ -45,10 +45,10 @@ class RuleWithOperations extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->apiGroups = $data['apiGroups'] ?? [];
-        $this->apiVersions = $data['apiVersions'] ?? [];
-        $this->operations = $data['operations'] ?? [];
-        $this->resources = $data['resources'] ?? [];
-        $this->scope = $data['scope'] ?? null;
+        $this->apiGroups = isset($data['apiGroups']) ? $data['apiGroups'] : [];
+        $this->apiVersions = isset($data['apiVersions']) ? $data['apiVersions'] : [];
+        $this->operations = isset($data['operations']) ? $data['operations'] : [];
+        $this->resources = isset($data['resources']) ? $data['resources'] : [];
+        $this->scope = isset($data['scope']) ? $data['scope'] : null;
     }
 }

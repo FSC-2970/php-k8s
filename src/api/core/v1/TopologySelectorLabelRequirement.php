@@ -21,7 +21,7 @@ class TopologySelectorLabelRequirement extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->key = $data['key'] ?? null;
-        $this->values = $data['values'] ?? [];
+        $this->key = isset($data['key']) ? $data['key'] : null;
+        $this->values = isset($data['values']) ? $data['values'] : [];
     }
 }

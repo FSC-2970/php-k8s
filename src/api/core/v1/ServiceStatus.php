@@ -26,7 +26,7 @@ class ServiceStatus extends \k8s\Resource
     {
         $this->conditions = array_map(function ($a) {
             return new Condition($a);
-        }, $data['conditions'] ?? []);
+        }, isset($data['conditions']) ? $data['conditions'] : []);
         if (isset($data['loadBalancer'])) {
             $this->loadBalancer = new LoadBalancerStatus($data['loadBalancer']);
         }

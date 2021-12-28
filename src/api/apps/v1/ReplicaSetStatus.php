@@ -47,13 +47,13 @@ class ReplicaSetStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->availableReplicas = $data['availableReplicas'] ?? null;
+        $this->availableReplicas = isset($data['availableReplicas']) ? $data['availableReplicas'] : null;
         $this->conditions = array_map(function ($a) {
             return new ReplicaSetCondition($a);
-        }, $data['conditions'] ?? []);
-        $this->fullyLabeledReplicas = $data['fullyLabeledReplicas'] ?? null;
-        $this->observedGeneration = $data['observedGeneration'] ?? null;
-        $this->readyReplicas = $data['readyReplicas'] ?? null;
-        $this->replicas = $data['replicas'] ?? null;
+        }, isset($data['conditions']) ? $data['conditions'] : []);
+        $this->fullyLabeledReplicas = isset($data['fullyLabeledReplicas']) ? $data['fullyLabeledReplicas'] : null;
+        $this->observedGeneration = isset($data['observedGeneration']) ? $data['observedGeneration'] : null;
+        $this->readyReplicas = isset($data['readyReplicas']) ? $data['readyReplicas'] : null;
+        $this->replicas = isset($data['replicas']) ? $data['replicas'] : null;
     }
 }

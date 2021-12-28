@@ -26,9 +26,9 @@ class NetworkPolicyIngressRule extends \k8s\Resource
     {
         $this->from = array_map(function ($a) {
             return new NetworkPolicyPeer($a);
-        }, $data['from'] ?? []);
+        }, isset($data['from']) ? $data['from'] : []);
         $this->ports = array_map(function ($a) {
             return new NetworkPolicyPort($a);
-        }, $data['ports'] ?? []);
+        }, isset($data['ports']) ? $data['ports'] : []);
     }
 }

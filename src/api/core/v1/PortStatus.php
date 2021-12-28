@@ -27,8 +27,8 @@ class PortStatus extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->error = $data['error'] ?? null;
-        $this->port = $data['port'] ?? null;
-        $this->protocol = $data['protocol'] ?? null;
+        $this->error = isset($data['error']) ? $data['error'] : null;
+        $this->port = isset($data['port']) ? $data['port'] : null;
+        $this->protocol = isset($data['protocol']) ? $data['protocol'] : null;
     }
 }

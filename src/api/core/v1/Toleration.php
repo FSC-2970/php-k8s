@@ -39,10 +39,10 @@ class Toleration extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->effect = $data['effect'] ?? null;
-        $this->key = $data['key'] ?? null;
-        $this->operator = $data['operator'] ?? null;
-        $this->tolerationSeconds = $data['tolerationSeconds'] ?? null;
-        $this->value = $data['value'] ?? null;
+        $this->effect = isset($data['effect']) ? $data['effect'] : null;
+        $this->key = isset($data['key']) ? $data['key'] : null;
+        $this->operator = isset($data['operator']) ? $data['operator'] : null;
+        $this->tolerationSeconds = isset($data['tolerationSeconds']) ? $data['tolerationSeconds'] : null;
+        $this->value = isset($data['value']) ? $data['value'] : null;
     }
 }

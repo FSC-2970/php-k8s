@@ -53,14 +53,14 @@ class ContainerStateTerminated extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->containerID = $data['containerID'] ?? null;
-        $this->exitCode = $data['exitCode'] ?? null;
+        $this->containerID = isset($data['containerID']) ? $data['containerID'] : null;
+        $this->exitCode = isset($data['exitCode']) ? $data['exitCode'] : null;
         if (isset($data['finishedAt'])) {
             $this->finishedAt = new Time($data['finishedAt']);
         }
-        $this->message = $data['message'] ?? null;
-        $this->reason = $data['reason'] ?? null;
-        $this->signal = $data['signal'] ?? null;
+        $this->message = isset($data['message']) ? $data['message'] : null;
+        $this->reason = isset($data['reason']) ? $data['reason'] : null;
+        $this->signal = isset($data['signal']) ? $data['signal'] : null;
         if (isset($data['startedAt'])) {
             $this->startedAt = new Time($data['startedAt']);
         }

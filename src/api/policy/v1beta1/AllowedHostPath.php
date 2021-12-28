@@ -23,7 +23,7 @@ class AllowedHostPath extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->pathPrefix = $data['pathPrefix'] ?? null;
-        $this->readOnly = $data['readOnly'] ?? null;
+        $this->pathPrefix = isset($data['pathPrefix']) ? $data['pathPrefix'] : null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
     }
 }

@@ -26,6 +26,6 @@ class StatefulSetUpdateStrategy extends \k8s\Resource
         if (isset($data['rollingUpdate'])) {
             $this->rollingUpdate = new RollingUpdateStatefulSetStrategy($data['rollingUpdate']);
         }
-        $this->type = $data['type'] ?? null;
+        $this->type = isset($data['type']) ? $data['type'] : null;
     }
 }

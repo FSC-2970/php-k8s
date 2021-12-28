@@ -29,10 +29,10 @@ class TokenRequestSpec extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->audiences = $data['audiences'] ?? [];
+        $this->audiences = isset($data['audiences']) ? $data['audiences'] : [];
         if (isset($data['boundObjectRef'])) {
             $this->boundObjectRef = new BoundObjectReference($data['boundObjectRef']);
         }
-        $this->expirationSeconds = $data['expirationSeconds'] ?? null;
+        $this->expirationSeconds = isset($data['expirationSeconds']) ? $data['expirationSeconds'] : null;
     }
 }

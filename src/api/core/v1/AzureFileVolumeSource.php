@@ -27,8 +27,8 @@ class AzureFileVolumeSource extends \k8s\Resource
 
     public function __construct($data)
     {
-        $this->readOnly = $data['readOnly'] ?? null;
-        $this->secretName = $data['secretName'] ?? null;
-        $this->shareName = $data['shareName'] ?? null;
+        $this->readOnly = isset($data['readOnly']) ? $data['readOnly'] : null;
+        $this->secretName = isset($data['secretName']) ? $data['secretName'] : null;
+        $this->shareName = isset($data['shareName']) ? $data['shareName'] : null;
     }
 }
