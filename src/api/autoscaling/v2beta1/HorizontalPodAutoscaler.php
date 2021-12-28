@@ -1,0 +1,58 @@
+<?php
+
+namespace k8s\api\autoscaling\v2beta1;
+
+use k8s\apimachinery\pkg\apis\meta\v1\ObjectMeta;
+use k8s\api\autoscaling\v2beta1\HorizontalPodAutoscalerSpec;
+use k8s\api\autoscaling\v2beta1\HorizontalPodAutoscalerStatus;
+
+/**
+ * HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
+ */
+class HorizontalPodAutoscaler extends \k8s\Resource
+{
+    /**
+     * @var string $apiVersion
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https:\/\/git.k8s.io\/community\/contributors\/devel\/sig-architecture\/api-conventions.md#resources
+     */
+    public $apiVersion;
+
+    /**
+     * @var string $kind
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https:\/\/git.k8s.io\/community\/contributors\/devel\/sig-architecture\/api-conventions.md#types-kinds
+     */
+    public $kind;
+
+    /**
+     * @var ObjectMeta $metadata
+     * metadata is the standard object metadata. More info: https:\/\/git.k8s.io\/community\/contributors\/devel\/sig-architecture\/api-conventions.md#metadata
+     */
+    public $metadata;
+
+    /**
+     * @var HorizontalPodAutoscalerSpec $spec
+     * spec is the specification for the behaviour of the autoscaler. More info: https:\/\/git.k8s.io\/community\/contributors\/devel\/sig-architecture\/api-conventions.md#spec-and-status.
+     */
+    public $spec;
+
+    /**
+     * @var HorizontalPodAutoscalerStatus $status
+     * status is the current information about the autoscaler.
+     */
+    public $status;
+
+    public function __construct($data)
+    {
+        $this->apiVersion = $data['apiVersion'] ?? null;
+        $this->kind = $data['kind'] ?? null;
+        if (isset($data['metadata'])) {
+            $this->metadata = new ObjectMeta($data['metadata']);
+        }
+        if (isset($data['spec'])) {
+            $this->spec = new HorizontalPodAutoscalerSpec($data['spec']);
+        }
+        if (isset($data['status'])) {
+            $this->status = new HorizontalPodAutoscalerStatus($data['status']);
+        }
+    }
+}

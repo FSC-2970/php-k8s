@@ -1,0 +1,22 @@
+{
+    "name": "wrd/k8s",
+    "description": "a simple k8s client for collecting",
+    "keywords": ["k8s", "Kubernetes", "client", "php"],
+    "authors": [
+        {
+            "name": "fsc",
+            "email": "fsc@wrdtech.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "k8s\\": ["src"]
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.4"
+    }
+}
