@@ -42,6 +42,8 @@ namespace k8s;
  * @method \k8s\api\discovery\v1beta1\EndpointSliceList getEndpointSliceList1() /apis/discovery.k8s.io/v1beta1/endpointslices
  * @method \k8s\api\flowcontrol\v1beta1\FlowSchemaList getFlowSchemaList() /apis/flowcontrol.apiserver.k8s.io/v1beta1/flowschemas
  * @method \k8s\api\flowcontrol\v1beta1\PriorityLevelConfigurationList getPriorityLevelConfigurationList() /apis/flowcontrol.apiserver.k8s.io/v1beta1/prioritylevelconfigurations
+ * @method \k8s\metrics\pkg\apis\metrics\v1beta1\NodeMetricsList getNodeMetricsList() /apis/metrics.k8s.io/v1beta1/nodes
+ * @method \k8s\metrics\pkg\apis\metrics\v1beta1\PodMetricsList getPodMetricsList() /apis/metrics.k8s.io/v1beta1/pods
  * @method \k8s\api\networking\v1\IngressClassList getIngressClassList() /apis/networking.k8s.io/v1/ingressclasses
  * @method \k8s\api\networking\v1\IngressList getIngressList() /apis/networking.k8s.io/v1/ingresses
  * @method \k8s\api\networking\v1\NetworkPolicyList getNetworkPolicyList() /apis/networking.k8s.io/v1/networkpolicies
@@ -103,6 +105,8 @@ class Client
         'EndpointSliceList1'                 => ['/apis/discovery.k8s.io/v1beta1/endpointslices', 'k8s\api\discovery\v1beta1\EndpointSliceList'],
         'FlowSchemaList'                     => ['/apis/flowcontrol.apiserver.k8s.io/v1beta1/flowschemas', 'k8s\api\flowcontrol\v1beta1\FlowSchemaList'],
         'PriorityLevelConfigurationList'     => ['/apis/flowcontrol.apiserver.k8s.io/v1beta1/prioritylevelconfigurations', 'k8s\api\flowcontrol\v1beta1\PriorityLevelConfigurationList'],
+        'NodeMetricsList'                    => ['/apis/metrics.k8s.io/v1beta1/nodes', 'k8s\metrics\pkg\apis\metrics\v1beta1\NodeMetricsList'],
+        'PodMetricsList'                     => ['/apis/metrics.k8s.io/v1beta1/pods', 'k8s\metrics\pkg\apis\metrics\v1beta1\PodMetricsList'],
         'IngressClassList'                   => ['/apis/networking.k8s.io/v1/ingressclasses', 'k8s\api\networking\v1\IngressClassList'],
         'IngressList'                        => ['/apis/networking.k8s.io/v1/ingresses', 'k8s\api\networking\v1\IngressList'],
         'NetworkPolicyList'                  => ['/apis/networking.k8s.io/v1/networkpolicies', 'k8s\api\networking\v1\NetworkPolicyList'],
